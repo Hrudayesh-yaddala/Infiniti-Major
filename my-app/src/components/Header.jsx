@@ -1,5 +1,4 @@
 import profilelogo from "../Images/profilelogo.webp";
-import docnlplogo from "../Images/docnlp.webp";
 import NavImage from '../Images/nav.webp'
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -41,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-rose-600 to-rose-400 ">
+    <header className="bg-gradient-to-r from-blue-400 to-blue-200">
       <nav className="px-4 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* <h1 className="ml-4">DocNLP</h1> */}
@@ -49,7 +48,11 @@ const Header = () => {
           <img className="h-16 w-24 " src={NavImage} alt="DocNlplogo"/>
           </Link>
           {/* <img src="../images/hamburger-menu.svg"/> */}
-          <div className="pr-10 flex">
+          <div className="pr-10 flex space-x-6 justify-center">
+            <label className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Text conversion</label>
+            <label  className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Audio conversion</label>
+            <label  className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Language Translation</label>
+            <label  className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Text summarization</label>
             <button
               type="button"
               className="mr-7 text-sm bg- rounded-full md:mr-0  items-right flex items-center"
@@ -64,7 +67,7 @@ const Header = () => {
                 alt="userphoto"
               />
               {/* Dropdown menu */}
-              <div className="text-lg text-white ml-2">
+              <div className="text-lg text-black ml-2">
                 Hi, {localStorage.getItem("firstname")}
               </div>
               {isDropdownOpen && (
