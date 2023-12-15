@@ -3,12 +3,14 @@ import React from "react";
 import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
+import Summarize from "./Summarization"
 import { NotFound } from "./NotFound";
 import { ForgetPassword } from "./ForgetPassword";
 import { ResetPassword } from "./ResetPassword";
 // import SingleEntry from "./SingleEntry";
 import {Route,Routes, useParams} from 'react-router-dom';
 import ProtectedLayout from "./ProtectedLayout";
+
 
 // import  { Toaster } from 'react-hot-toast';
 function App(){
@@ -25,11 +27,14 @@ function App(){
                 <Route path="*" element={<NotFound/>}/>
                 <Route path="/" element={<ProtectedLayout/>}>
                     <Route path="home" element={<Home/>} />
+                        <Route path="summarization" element={<Summarize/>} /> 
+
                 </Route>
             </Routes>
         </div>
     );
 }
 export default App;
+
 
 

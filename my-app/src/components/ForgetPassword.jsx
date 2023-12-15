@@ -117,7 +117,6 @@
 
 import React, { useState } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
-import DarkLogo from "../Images/logo-blue-removebg-preview.webp";
 import ForgetImage from "../Images/forget.webp";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
