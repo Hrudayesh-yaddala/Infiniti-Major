@@ -40,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-blue-400 to-blue-200">
+    <header className=" bg-gradient-to-r from-rose-500 to-rose-400">
       <nav className="px-4 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* <h1 className="ml-4">DocNLP</h1> */}
@@ -49,10 +49,10 @@ const Header = () => {
           </Link>
           {/* <img src="../images/hamburger-menu.svg"/> */}
           <div className="pr-10 flex space-x-6 justify-center">
-            <label className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Text conversion</label>
-            <label  className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Audio conversion</label>
-            <label  className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Language Translation</label>
-            <label  className="text-black text-base font-normal hover:bg-red-700 rounded-md p-1 cursor-pointer">Text summarization</label>
+            <label className="text-black text-base  hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Text conversion</label>
+            <label  className="text-black text-base hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Audio conversion</label>
+            <label  className="text-black text-base hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Language Translation</label>
+            <Link  to={'/text-summarization'} className="text-black text-base hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Text summarization</Link>
             <button
               type="button"
               className="mr-7 text-sm bg- rounded-full md:mr-0  items-right flex items-center"

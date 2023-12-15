@@ -1,6 +1,4 @@
-// import homebg from "../Images/home.webp";
-// import { Link } from "react-router-dom";
-// import Resside from "./Resside";
+
 import React from "react";
 import { Featurecards } from "./Featurecards";
 import Testimonials from "./Testimonials";
@@ -14,6 +12,7 @@ function Home() {
         <Featurecards/>
         <Testimonials/>
         <Footer/>
+        
         
       </div>
     );

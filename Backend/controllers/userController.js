@@ -188,7 +188,46 @@ const resetpassword = async (req, res) => {
 };
 
 
+const textsummarization = async (req, res) => {
+  const flask_url = process.env.FLASK_URL + "/text-summarization";
+  const document_types = req.body.document_type;
+  try {
 
+    if (req.files.length >= 1) {
+      const formData = new FormData();
+
+      for (let i = 0; i < req.files.length; i++) {
+        if (req.files.length === 1) {
+          formData.append('document_type', document_types);
+        }
+        else {
+          formData.append('document_type', document_types[i])
+        }
+        formData.append('pdf', new Blob([req.files[i].buffer]), 'pdf-file.pdf');
+      }
+
+      const pythonFlaskResponse = await axios.post(flask_url, formData, {
+
+      });
+      return res.status(200).json({ results: pythonFlaskResponse.data.results });
+
+    }
+    else {
+      const formData = new FormData();
+      formData.append('document_type', document_types);
+      const input_content = req.body.input_content;
+      formData.append("input_content", input_content);
+      const pythonFlaskResponse = await axios.post(flask_url, formData, {
+      });
+      return res.status(200).json({ results: pythonFlaskResponse.data.results });
+    }
+  }
+  catch (err) {
+    // console.error("Error Occured in Flask API:", err);
+    return res.status(500).json({ message: err.message, results: err });
+
+  }
+}
 
 
 
@@ -197,5 +236,6 @@ module.exports = {
   signin,
   forgetpassword,
   resetpassword,
+  textsummarization,
  
 };

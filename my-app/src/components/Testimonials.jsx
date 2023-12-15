@@ -16,8 +16,7 @@ export default () => {
                                 Web Developer
                             </h6>
                             <p class="mb-4">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos
-                                id officiis hic tenetur quae quaerat ad velit ab hic.
+                            Exceptional user interface and functionality. The seamless integration of cutting-edge technologies, such as OCR and ASR, enhances user experience. A versatile tool catering to a diverse range of users.
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="inline-block w-6">
                                     <path fill="currentColor"
                                         d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
@@ -66,8 +65,7 @@ export default () => {
                                 Graphic Designer
                             </h6>
                             <p class="mb-4">
-                                Ut enim ad minima veniam, quis nostrum exercitationem ullam
-                                corporis suscipit laboriosam, nisi ut aliquid commodi.
+                            Impressive project with a user-friendly design and robust features. The application's commitment to accessibility, security, and performance optimization is commendable. A powerful tool for enhancing productivity.
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="inline-block w-6">
                                     <path fill="currentColor"
                                         d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
@@ -116,8 +114,7 @@ export default () => {
                                 Marketing Specialist
                             </h6>
                             <p class="mb-4">
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                blanditiis praesentium voluptatum deleniti atque corrupti.
+                            Well-designed application offering a comprehensive suite of text analysis and conversion features. The focus on inclusivity and scalability is notable. Continued refinement could further elevate the user experience.
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="inline-block w-6">
                                     <path fill="currentColor"
                                         d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
