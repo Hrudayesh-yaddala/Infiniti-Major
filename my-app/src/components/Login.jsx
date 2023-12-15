@@ -47,7 +47,6 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        // "http://localhost:8000/api/user/login",
         "https://major-backend-infiniti.onrender.com/api/user/login",
         formData,
         {
