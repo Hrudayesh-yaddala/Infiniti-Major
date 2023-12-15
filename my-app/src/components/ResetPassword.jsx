@@ -160,7 +160,8 @@ export const ResetPassword = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/user/resetpassword/${isUser_id}/${accessToken}`,
+        // `http://localhost:8000/api/user/resetpassword/${isUser_id}/${accessToken}`,
+        `https://major-backend-infiniti.onrender.com/api/user/resetpassword/${isUser_id}/${accessToken}`,
         { password }
       );
 
