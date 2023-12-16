@@ -16,7 +16,7 @@ export const Featurecards = () => {
 
                 <div className="grid md:grid-cols-3 justify-center items-center">
                     <div className="mb-6 lg:mb-0 ">
-                        <div className=" w-80 block rounded-lg bg-white mx-auto dark:bg-neutral-700 cursor-pointer transition duration-500 hover:scale-110">
+                        <div className=" w-80 block rounded-lg bg-white mx-auto  cursor-pointer transition duration-500 hover:scale-110">
                             <div className="flex">
                                 <div className="relative mx-4 -mt-4 w-72 overflow-hidden rounded-lg bg-cover bg-no-repeat ">
                                     <img src={handwritten} alt='audiofile' className="w-full"/>                                 
@@ -28,7 +28,7 @@ export const Featurecards = () => {
                         </div>
                     </div>
                     <div className="mb-6 lg:mb-0">
-                        <div className="w-80 rounded-lg bg-white  mx-auto dark:bg-neutral-700 cursor-pointer transition duration-500 hover:scale-125">
+                        <div className="w-80 rounded-lg bg-white  mx-auto  cursor-pointer transition duration-500 hover:scale-125">
                             <div className="flex">
                                 <div className="relative mx-4 -mt-4 w-72 overflow-hidden rounded-lg bg-cover bg-no-repeat ">
                                     <img src={audi} className="w-full"/>                                 
@@ -40,7 +40,7 @@ export const Featurecards = () => {
                         </div>
                     </div>
                     <div className="mb-6 lg:mb-0 sm: w-full">
-                        <div className="w-80 rounded-lg bg-white  mx-auto dark:bg-neutral-700 cursor-pointer transition duration-500 hover:scale-110">
+                        <div className="w-80 rounded-lg bg-white  mx-auto  cursor-pointer transition duration-500 hover:scale-110">
                             <div className="flex">
                                 <div className="relative mx-4 -mt-4 w-72 overflow-hidden rounded-lg bg-cover bg-no-repeat ">
                                     <img src={variousfile}className="w-full"/>                                 
@@ -52,7 +52,7 @@ export const Featurecards = () => {
                         </div>
                     </div>
                     <div className="mb-6 lg:mb-0 mt-8">
-                        <div className="w-80 rounded-lg bg-white mx-auto  dark:bg-neutral-700 cursor-pointer transition duration-500 hover:scale-110">
+                        <div className="w-80 rounded-lg bg-white mx-auto   cursor-pointer transition duration-500 hover:scale-110">
                             <div className="flex">
                                 <div className="relative mx-4 -mt-4 w-72 overflow-hidden rounded-lg bg-cover bg-no-repeat ">
                                     <img src={variousfile} className="w-full"/>                                 
@@ -64,7 +64,7 @@ export const Featurecards = () => {
                         </div>
                     </div>
                     <div className="mb-6 lg:mb-0 mt-8">
-                        <div className="w-80 rounded-lg bg-white  mx-auto dark:bg-neutral-700 cursor-pointer transition duration-500 hover:scale-110">
+                        <div className="w-80 rounded-lg bg-white  mx-auto  cursor-pointer transition duration-500 hover:scale-110">
                             <div className="flex">
                                 <div className="relative mx-4 -mt-4 w-72 overflow-hidden rounded-lg bg-cover bg-no-repeat ">
                                     <img src={summarization} className="w-full" />                                 
@@ -76,7 +76,7 @@ export const Featurecards = () => {
                         </div>
                     </div>
                     <div className="mb-6 lg:mb-0 mt-8">
-                        <div className="w-80 rounded-lg bg-white  mx-auto dark:bg-neutral-700 cursor-pointer transition duration-500 hover:scale-110">
+                        <div className="w-80 rounded-lg bg-white  mx-auto  cursor-pointer transition duration-500 hover:scale-110">
                             <div className="flex">
                                 <div className="relative mx-4 -mt-4 w-72 overflow-hidden rounded-lg bg-cover bg-no-repeat ">
                                     <img src={maths} className="w-full"/>                                 
