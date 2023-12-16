@@ -152,7 +152,8 @@ export const ForgetPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/forgetpassword",
+        // "http://localhost:8000/api/user/forgetpassword",
+        "https://major-backend-infiniti.onrender.com/api/user/forgetpassword",
         formData,
         {
           headers: {

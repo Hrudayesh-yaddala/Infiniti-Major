@@ -79,7 +79,7 @@ const Register = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/user/register",
+           "https://major-backend-infiniti.onrender.com/api/user/register",
           { ...data, phone: phoneNumber }, // Replace phone object with phoneNumber
           {
             headers: {
