@@ -74,7 +74,7 @@ const Summarize = () => {
         }
 
         const response = await axios.post(
-          "https://major-backend-infiniti.onrender.com/api/user/summarization",
+          "https://major-backend-infiniti.onrender.com/api/user/textSummarization",
           formData,
         );
         // console.log(response.data) ;
