@@ -40,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <header className=" bg-gradient-to-r from-rose-500 to-rose-400">
+    <header className=" bg-[#ffa781]">
       <nav className="px-4 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* <h1 className="ml-4">DocNLP</h1> */}
@@ -49,10 +49,10 @@ const Header = () => {
           </Link>
           {/* <img src="../images/hamburger-menu.svg"/> */}
           <div className="pr-10 flex space-x-6 justify-center">
-            <label className="text-black text-base  hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Text conversion</label>
-            <label  className="text-black text-base hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Audio conversion</label>
-            <label  className="text-black text-base hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Language Translation</label>
-            <Link  to={'/text-summarization'} className="text-black text-base hover:bg-rose-200 rounded-md p-2 cursor-pointer font-semibold">Text summarization</Link>
+            <label className="text-black text-lg  hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text conversion</label>
+            <label  className=" text-lg :bg-[#5b0e2d] bg-[#5b0e2d] text-white rounded-md p-2 cursor-pointer font-medium">Audio conversion</label>
+            <label  className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Language Translation</label>
+            <Link  to={'/text-summarization'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text summarization</Link>
             <button
               type="button"
               className="mr-7 text-sm bg- rounded-full md:mr-0  items-right flex items-center"
@@ -79,21 +79,21 @@ const Header = () => {
                   <ul className="text-center space-y-4 p-4">
                     <li>
                       
-                      <Link to={"/home"}className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-rose-400 rounded-4xl hover:text-white">My Profile</Link>
+                      <Link to={"/home"}className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] rounded-4xl hover:text-white">My Profile</Link>
                     </li>
                     <li>
                       
-                      <Link to={"/home"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-rose-400 hover:text-white">Dashboard</Link>
+                      <Link to={"/home"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] hover:text-white">Dashboard</Link>
                     </li>
                     <li>
                       
-                      <Link to={"/home"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-rose-400 hover:text-white">Settings</Link>
+                      <Link to={"/home"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] hover:text-white">Settings</Link>
                     </li>
                     <li>
                       
                     </li>
 
-                    <Link className=" pb-2 text-md font-bold text-black p-2  cursor-pointer hover:bg-rose-400 hover:text-white rounded-md" onClick={handleLogout}>Sign out</Link>
+                    <Link className=" pb-2 text-md font-bold text-black p-2  cursor-pointer hover:bg-[#5b0e2d] hover:text-white rounded-md" onClick={handleLogout}>Sign out</Link>
                     <br/>                   
                   </ul>
                 </div>

@@ -11,7 +11,7 @@ router.route("/register").post(signup);
 router.route("/login").post(signin);
 router.route("/forgetpassword").post(forgetpassword);
 router.route("/resetpassword/:userId/:accessToken").post(resetpassword);
-router.post('/textSummarization', upload.array('documents'), textsummarization);
+router.post('/textsummarization', upload.array('documents'), textsummarization);
 
 router.use(isAuthenticated);
 module.exports = router;

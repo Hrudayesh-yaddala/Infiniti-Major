@@ -3,7 +3,7 @@ export default () => {
         <div>
             <div class="container my-24 mx-auto md:px-6">
                 <section class="mb-32 text-center">
-                    <h2 class="mb-12 text-3xl font-bold">Testimonials</h2>
+                    <h2 class="mb-12 text-4xl font-bold text-[#5b0e2d]">Testimonials</h2>
 
                     <div class="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
                         <div class="mb-12 md:mb-0">
@@ -61,7 +61,7 @@ export default () => {
                                     class="w-32 rounded-full shadow-lg dark:shadow-black/20" />
                             </div>
                             <h5 class="mb-2 text-lg font-bold">Lisa Cudrow</h5>
-                            <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
+                            <h6 class="mb-4 font-medium text-primary ">
                                 Graphic Designer
                             </h6>
                             <p class="mb-4">
