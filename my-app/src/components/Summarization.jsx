@@ -75,11 +75,11 @@ const Summarize = () => {
       
         // console.log(formData.getAll("documents"))
         const response = await axios.post(
-<<<<<<< HEAD
+
           "https://major-backend-infiniti.onrender.com/api/user/textSummarization",
-=======
-          "http://localhost:8000/api/user/textsummarization",
->>>>>>> 06435b9553d4399986bfacd213142eafc7f0958e
+
+          
+
           formData,
         );
         // console.log(response.data) ;
