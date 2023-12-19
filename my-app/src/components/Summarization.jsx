@@ -72,9 +72,10 @@ const Summarize = () => {
             formData.append("document_type", filetypes[i]);
           }
         }
-
+      
+        // console.log(formData.getAll("documents"))
         const response = await axios.post(
-          "http://localhost:8000/api/user/textSummarization",
+          "http://localhost:8000/api/user/textsummarization",
           formData,
         );
         // console.log(response.data) ;

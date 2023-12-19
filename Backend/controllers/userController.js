@@ -189,10 +189,10 @@ const resetpassword = async (req, res) => {
 
 
 const textsummarization = async (req, res) => {
-  const flask_url = process.env.FLASK_URL + "/text-summarization";
+  const flask_url = process.env.FLASK_URL + "/AI-API/text-summarization";
   const document_types = req.body.document_type;
+  console.log(document_types);
   try {
-
     if (req.files.length >= 1) {
       const formData = new FormData();
 
@@ -209,6 +209,7 @@ const textsummarization = async (req, res) => {
       const pythonFlaskResponse = await axios.post(flask_url, formData, {
 
       });
+      print(pythonFlaskResponse.data.results)
       return res.status(200).json({ results: pythonFlaskResponse.data.results });
 
     }
@@ -216,12 +217,15 @@ const textsummarization = async (req, res) => {
       const formData = new FormData();
       formData.append('document_type', document_types);
       const input_content = req.body.input_content;
+      console.log(input_content)
       formData.append("input_content", input_content);
       const pythonFlaskResponse = await axios.post(flask_url, formData, {
       });
+      print(pythonFlaskResponse.data.results)
       return res.status(200).json({ results: pythonFlaskResponse.data.results });
     }
   }
+
   catch (err) {
     // console.error("Error Occured in Flask API:", err);
     return res.status(500).json({ message: err.message, results: err });
