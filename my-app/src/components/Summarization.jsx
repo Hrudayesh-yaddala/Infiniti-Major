@@ -164,10 +164,10 @@ const Summarize = () => {
 
   return (
     <div>{loading ? load() : (
-      <div className="font-sans items-center text-left bg-slate-200 h-screen">
+      <div className="font-sans items-center text-left bg-[#ffa781] h-screen">
         <div className="container mx-auto md:w-1/2 lg:w-full xl:w-full pt-10 pl-8 pr-8 ">
-          <div className="text-center rounded-t-xl py-4 w-full bg-gradient-to-r from-rose-500 to-blue-400 text-white font-bold"><h2 className="text-xl">Text Summarization</h2></div>
-          <div className=" bg-white p-10 rounded-b-lg shadow-lg shadow-gray-500">
+          <div className="text-center rounded-t-xl py-4 w-full bg-[#5b0e2d] text-white font-bold"><h2 className="text-xl">Text Summarization</h2></div>
+          <div className=" bg-white p-10 rounded-b-lg shadow-2xl shadow-[#5b0e2d]">
             <div className="grid grid-cols-2 outline-dotted rounded-lg h-32">
               <div className="mx-auto mt-4">
                 <label class="text-gray-500 font-semibold text-base ">SELECT DOCUMENT TYPE</label>
@@ -250,11 +250,11 @@ const Summarize = () => {
               </div>
             )}
             <div className={`${textInput ? "" : "hidden"}`}>
-              <div className="text-center"><small className="font-bold mt-4 text-gray-500">OR INPUT YOUR TEXT HERE</small></div>
+              <div className="text-center"><small className="font-bold mt-4 text-black">OR INPUT YOUR TEXT HERE</small></div>
               <br />
               <div className="mb-4">
                 <table className="w-full border-[#044661] border-2  rounded-t-lg ">
-                  <th className="font-semibold text-base text-center   text-white bg-gradient-to-r from-rose-500 to-blue-400 pl-1">Text to Summarize</th>
+                  <th className="font-semibold text-base text-center   text-white bg-[#5b0e2d] pl-1">Text to Summarize</th>
                   <tr><td><textarea onChange={(event) => setInputData(event.target.value)} name="input_content" className="w-full h-44 border-transparent focus:outline-none focus:ring-0 focus:border-transparent"></textarea></td></tr>
                 </table>
               </div>

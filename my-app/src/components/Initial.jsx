@@ -1,6 +1,7 @@
 import NLP from '../Images/nlp.webp';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { TypeAnimation } from 'react-type-animation';
 
 export default()=>{
     return(
@@ -11,8 +12,27 @@ export default()=>{
                         <div className=" space-y-3">
 
                         <h3 className='font-bold text-[#5b0e2d] text-5xl flex-shrink'>Transform the communication </h3>
-                        <h3 className='font-bold text-[#5b0e2d] text-5xl'>with our <span className='text-black'>NLP-Powered</span></h3>
-                        <h3 className='font-bold text-[#5b0e2d] text-5xl'>App </h3>
+                        <h3 className='font-bold text-[#5b0e2d] text-5xl'>With  
+                        <TypeAnimation
+                        sequence={[
+                            // Same substring at the start will only be typed out once, initially
+                            '  NLP-Powered',
+                            1000, // wait 1s before replacing "Mice" with "Hamsters"
+                            '  NLP-Enhanced',
+                            1000,
+                            '  NLP-Advanced',
+                            1000,
+                            '  NLP-Optimized',
+                            1000
+                        ]}
+                        wrapper="span"
+                        speed={10}
+                        className=' text-black '
+                        repeat={Infinity}
+                        /></h3>
+                        
+                        {/* <h3 className='font-bold text-[#5b0e2d] text-5xl'>with <span className='text-black'>NLP-Powered</span></h3> */}
+                        <h3 className='font-bold text-[#5b0e2d] text-5xl'>Application </h3>
                         </div>
                     
                     
