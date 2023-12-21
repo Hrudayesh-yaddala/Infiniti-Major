@@ -227,8 +227,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-  
-        "https://major-backend-infiniti.onrender.com/api/user/login",
+      "https://major-backend-infiniti.onrender.com/api/user/login",
         formData,
         {
           headers: {
@@ -270,7 +269,7 @@ const Login = () => {
       
         <div class="hidden bg-cover lg:block lg:w-2/3 bg-[url('/bg.webp')]">
            
-            <div class="flex items-center h-full px-20 bg-[#ffa781] bg-opacity-10">
+            <div class="flex items-center h-full px-20 bg-[#ffa781] bg-opacity-10 ml-6">
                 <div>
                     <h2 class="text-4xl font-bold text-white sm:text-3xl">Infiniti Script</h2>
 
