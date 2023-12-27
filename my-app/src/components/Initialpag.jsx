@@ -6,7 +6,7 @@ export default()=>{
         <div className="bg-[#ffa781] flex mt-24 mb-11">
             <div className="w-1/2 ">
                 {/* <div className=" shadow-2xl shadow-purple-800"><img src={chat} className="px-40 py-8"></img></div> */}
-                <div className='w-1/2 ml-32 '><img src={NLPTXT} alt='background-display' className=' rounded-2xl border-2  shadow-2xl shadow-[#5b0e2d] w-full'></img></div>
+                <div className='w-1/2 ml-32 bg-[#5b0e2d] rounded-2xl'><img src={NLPTXT} alt='background-display' className=' rounded-2xl border-2  shadow-2xl shadow-[#5b0e2d] w-full animate-pulse'></img></div>
                 
             </div>
             <div className='w-1/2 item '>
