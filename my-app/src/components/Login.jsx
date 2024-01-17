@@ -185,6 +185,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Nav from "./Nav";
 import LoginImage from "../Images/infiniti-side.webp";
 import ForgetImage from "../Images/forget.webp";
+import {APICall}  from "../API/Apicall";
 
 
 const Login = () => {
@@ -227,8 +228,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-      "https://major-backend-infiniti.onrender.com/api/user/login",
-      // "http://localhost:8000/api/user/login",
+      APICall+'/login',
         formData,
         {
           headers: {
@@ -289,23 +289,23 @@ const Login = () => {
                         <img class=" w-24 h-24" src={ForgetImage} alt=""/>
                     </div>
 
-                    <p class="mt-3 text-black dark:text-gray-300 font-semibold text-lg">Sign in to access your account</p>
+                    <p class="mt-3 text-black  font-semibold text-lg">Sign in to access your account</p>
                 </div>
 
                 <div class="mt-8">
                     <form>
                         <div>
-                            <label for="email" class="block mb-2 text-sm text-black dark:text-gray-200">Email Address</label>
-                            <input type="email" value={email} placeholder="example@example.com" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#5b0e2d] dark:focus:border-[#5b0e2d] focus:ring-[#5b0e2d] focus:outline-none focus:ring focus:ring-opacity-40" onChange={(event)=>setEmail(event.target.value)} />
+                            <label for="email" class="block mb-2 text-sm text-black ">Email Address</label>
+                            <input type="email" value={email} placeholder="example@example.com" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg   focus:border-[#5b0e2d]  focus:ring-[#5b0e2d] focus:outline-none focus:ring focus:ring-opacity-40" onChange={(event)=>setEmail(event.target.value)} />
                         </div>
 
                         <div class="mt-6">
                             <div class="flex justify-between mb-2">
-                                <label for="password" class="text-sm text-black dark:text-gray-200">Password</label>
+                                <label for="password" class="text-sm text-black ">Password</label>
                                 <Link to={'/forgetpassword'} class="text-sm text-black focus:text-[#5b0e2d] hover:text-[#5b0e2d] hover:underline">Forgot password?</Link>
                             </div>
 
-                            <input type="password" value={password} placeholder="Your Password" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#5b0e2d] dark:focus:border-[#5b0e2d] focus:ring-[#5b0e2d] focus:outline-none focus:ring focus:ring-opacity-40" onChange={(event)=>setPassword(event.target.value)} />
+                            <input type="password" value={password} placeholder="Your Password" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg   focus:border-[#5b0e2d]  focus:ring-[#5b0e2d] focus:outline-none focus:ring focus:ring-opacity-40" onChange={(event)=>setPassword(event.target.value)} />
                         </div>
 
                         <div class="mt-6">

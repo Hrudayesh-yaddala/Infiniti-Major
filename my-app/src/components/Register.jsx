@@ -10,7 +10,8 @@ import { toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import '../index.css'; // Import your CSS file
-
+// import APICall  from "../API/Apicall";
+import { APICall } from "../API/Apicall";
 
 
 
@@ -79,8 +80,7 @@ const Register = () => {
 
       try {
         const response = await axios.post(
-           "https://major-backend-infiniti.onrender.com/api/user/register",
-          // "http://localhost:8000/api/user/register",
+        APICall+'/register',
           { ...data, phone: phoneNumber },
           {
             headers: {
