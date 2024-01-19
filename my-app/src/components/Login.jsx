@@ -185,7 +185,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Nav from "./Nav";
 import LoginImage from "../Images/infiniti-side.webp";
 import ForgetImage from "../Images/forget.webp";
-import {APICall}  from "../API/Apicall";
+import { APICall } from "../API/APICall";
 
 
 const Login = () => {
