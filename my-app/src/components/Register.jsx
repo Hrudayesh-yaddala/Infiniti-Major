@@ -10,8 +10,7 @@ import { toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import '../index.css'; // Import your CSS file
-// import APICall  from "../API/Apicall";
-import { APICall } from "../API/Apicall";
+import { APICall } from "../API/APICall";
 
 
 
