@@ -9,6 +9,9 @@ import { FaEye } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import BeatLoader from "react-spinners/BeatLoader";
 // import { BASE_URL } from "../config";
+import { APICall } from "../API/APICall";
+
+
 
 const Summarize = () => {
   const [documents, setDocuments] = useState([]);
@@ -75,11 +78,7 @@ const Summarize = () => {
       
         // console.log(formData.getAll("documents"))
         const response = await axios.post(
-
-          "https://major-backend-infiniti.onrender.com/api/user/textSummarization",
-
-          
-
+          APICall+"/text-summarization",
           formData,
         );
         // console.log(response.data) ;
