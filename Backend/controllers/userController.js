@@ -190,7 +190,7 @@ const resetpassword = async (req, res) => {
 
 const textsummarization = async (req, res) => {
   // const flask_url = process.env.FLASK_URL + "/AI-API/text-summarization";
-  const flask_url = "http://dev.docnlp.com/AI-API/text-summarization";
+  const flask_url = "https://dev.docnlp.com/AI-API/text-summarization";
 
   const document_types = req.body.document_type;
   // console.log(document_types);
@@ -260,7 +260,7 @@ const speechrecognition = async (req, res) => {
 
 const handwrittenOcr= async (req, res) => {
   try {
-    const flask_url = process.env.FLASK_URL + "/audio-transcribe";
+    const flask_url = process.env.FLASK_URL + "/ocr";
     // const flask_url =  " http://127.0.0.1:5000/ocr";
    
 

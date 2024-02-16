@@ -102,14 +102,17 @@ const HandConversion = () => {
         finally{
           setLoading(false);
           setFilestat(false);
+          
         }
       };
   return (
     <div>
       {/* <video src="/Videos/dustparticles.mp4" autoPlay muted loop /> */}
-        <div className='flex h-screen p-32 space-x-5'>
+        <div className='flex h-screen p-32 space-x-5 bg-gradient-to-tl from-orange-400 via-purple-400 to-blue-400'>
             
-            <div className='w-1/2 bg-[#ffa781]  justify-center items-center rounded-lg'>
+            <div className={`bg-[#ffa781] opacity-90 justify-center items-center rounded-lg ${resdata ? "w-1/2": "w-1/2" }`}>
+     
+
                 
                 {filestat?(
                    <div className=' w-1/2 mt-20 ml-32'>
@@ -143,7 +146,7 @@ const HandConversion = () => {
                
                 <div className=' flex justify-end mt-20 space-x-3 '>
                 <BsTrashFill className=' text-white bg-[#5b0e2d] text-4xl  p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
-                <button className='bg-[#5b0e2d] p-2 rounded-lg text-white font-bold' type='submit' onClick={TranscribeFile}>Transcribe</button>
+                <button className='bg-[#5b0e2d] p-2 rounded-lg text-white font-bold' type='submit' onClick={TranscribeFile}>Convert</button>
                 <div className=' w-7'></div>
                 </div>
                 
@@ -152,9 +155,10 @@ const HandConversion = () => {
                 
        
             </div>
-            <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
+            {resdata && (
+                <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
                 <div className=' px-10 py-10'>
-                  { loading ? load():( <textarea className=' w-full p-3 text-left h-72' value={resdata}></textarea>)}  
+                  { loading ? load():( <textarea className=' w-full p-3 text-left h-72 bg-[#83294d] text-white border border-gray-400' value={resdata}></textarea>)}  
                 </div>
                 <div className=' flex justify-end space-x-3 mt-12'>
                 <MdOutlineDownload onClick={downloadcopy} className=' cursor-pointer text-white p-2 rounded-lg  bg-[#5b0e2d] text-4xl'/>
@@ -163,6 +167,8 @@ const HandConversion = () => {
                 </div>
                 
             </div>
+            )}
+          
         </div>
     </div>
   )

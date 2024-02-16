@@ -5,10 +5,10 @@ const Pricing = () => {
     <div className='bg-[#ffa781] dark:bg-gray-900 h-screen'>
 <div class="">
     <div class="container px-6 py-8 mx-auto">
-        <div class="flex flex-col items-center justify-center space-y-8 lg:-mx-4 lg:flex-row lg:items-stretch lg:space-y-0">
-            <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-900 dark:border-gray-700">
+        <div class="  mt-20 flex flex-col items-center justify-center space-y-8 lg:-mx-4 lg:flex-row lg:items-stretch lg:space-y-0">
+            <div class="  flex flex-col w-full max-w-sm p-8 space-y-8 text-center  bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-900 dark:border-gray-700">
                 <div class="flex-shrink-0">
-                    <h2 class="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-blue-400 uppercase rounded-lg bg-gray-50 dark:bg-gray-700">
+                    <h2 class="inline-flex items-center justify-center px-2 font-bold tracking-tight text-[#5b0e2d] uppercase rounded-lg ">
                         Casual
                     </h2>
                 </div>
@@ -33,14 +33,14 @@ const Pricing = () => {
                     </li>
                 </ul>
 
-                <Link to={'/audio-main'} class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none">
+                <Link to={'/audio-main'} class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-[#5b0e2d] rounded-lg hover:bg-orange-800 focus:outline-none">
                     Start free
                 </Link>
             </div>
 
             <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-900 dark:border-gray-700">
                 <div class="flex-shrink-0">
-                    <h2 class="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-blue-400 uppercase rounded-lg bg-gray-50 dark:bg-gray-700">
+                    <h2 class="inline-flex items-center justify-center px-2 font-bold tracking-tight text-[#5b0e2d] uppercase rounded-lg ">
                         Professional
                     </h2>
                 </div>
@@ -73,14 +73,14 @@ const Pricing = () => {
                     </li>
                 </ul>
 
-                <button class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none">
+                <button class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-[#5b0e2d] rounded-lg hover:bg-orange-800 focus:outline-none">
                     Start free trial
                 </button>
             </div>
 
-            <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:bg-gray-900 dark:border-gray-700">
+            <div class="flex flex-col w-full max-w-sm p-8 space-y-8 text-center bg-white border-2 border-[#5b0e2d] rounded-lg lg:mx-4 dark:bg-gray-900 dark:border-gray-700">
                 <div class="flex-shrink-0">
-                    <h2 class="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-blue-400 uppercase rounded-lg bg-gray-50 dark:bg-gray-700">
+                    <h2 class="inline-flex items-center justify-center px-2 font-bold tracking-tight text-[#5b0e2d] uppercase rounded-lg ">
                         Expert
                     </h2>
                 </div>
@@ -117,7 +117,7 @@ const Pricing = () => {
                     </li>
                 </ul>
 
-                <button class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none">
+                <button class="inline-flex items-center justify-center px-4 py-2 font-medium text-white uppercase transition-colors bg-[#5b0e2d] rounded-lg hover:bg-orange-800 focus:outline-none">
                     Start free trial
                 </button>
             </div>

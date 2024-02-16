@@ -107,7 +107,9 @@ const Audiotranscribe = () => {
       };
   return (
     <div>
-        <div className='flex h-screen p-32 space-x-5'>
+        
+        <div className='flex h-screen p-32 space-x-5 bg-gradient-to-tl from-orange-400 via-purple-400 to-blue-400'>
+
       
             <div className='w-1/2 bg-[#ffa781]  justify-center items-center rounded-lg'>
                 
@@ -152,17 +154,19 @@ const Audiotranscribe = () => {
                 
        
             </div>
-            <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
+            {resdata && (
+                <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
                 <div className=' px-10 py-10'>
-                  { loading ? load():( <textarea className=' w-full p-3 text-left h-72' value={resdata}></textarea>)}  
+                  { loading ? load():( <textarea className=' w-full p-3 text-left h-72 bg-[#83294d] text-white border border-gray-400' value={resdata}></textarea>)}  
                 </div>
                 <div className=' flex justify-end space-x-3 mt-12'>
-                <MdOutlineDownload onClick={downloadcopy} className=' cursor-pointer text-white bg-[#5b0e2d]  p-2 text-4xl'/>
-                <MdContentCopy onClick={copyClip} className=' cursor-pointer text-white bg-[#5b0e2d] p-2 text-4xl'/>
+                <MdOutlineDownload onClick={downloadcopy} className=' cursor-pointer text-white p-2 rounded-lg  bg-[#5b0e2d] text-4xl'/>
+                <MdContentCopy onClick={copyClip} className=' cursor-pointer text-white bg-[#5b0e2d] rounded-lg text-4xl p-2'/>
                 <div className=' w-5'></div>
                 </div>
                 
             </div>
+            )}
         </div>
     </div>
   )
