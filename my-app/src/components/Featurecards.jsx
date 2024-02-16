@@ -23,7 +23,8 @@ export const Featurecards = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h5 className="mb-2 text-lg font-medium text-white">Text Conversion</h5>                       
+                                <Link  to={'/hand-to-edit'} className="mb-2 text-lg font-medium text-white">Text Conversion</Link> 
+                                          
                             </div>
                         </div>
                     </div>
@@ -35,7 +36,7 @@ export const Featurecards = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h5 className="mb-2 text-lg font-medium text-white">Audio Conversion</h5>                       
+                                <Link className="mb-2 text-lg font-medium text-white" to={'/audio-transcribe'}>Audio Conversion</Link>                       
                             </div>
                         </div>
                     </div>

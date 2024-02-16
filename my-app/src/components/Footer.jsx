@@ -1,6 +1,9 @@
+import ReactPlayer from "react-player"
 export default () => {
     return (
         <div>
+            {/* <video src="/Videos/dustparticles.mp4" autoPlay muted loop /> */}
+           
             <footer class="px-3 pt-4 lg:px-9 bg-[#ffa781] border border-black">
                 <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
 
@@ -33,7 +36,7 @@ export default () => {
                                 <img src="https://mcqmate.com/public/images/icons/playstore.svg" alt="Playstore Button"
                                     class="h-10"/>
                             </a>
-                            <a class="w-full min-w-xl" href="https://www.youtube.com/channel/UCo8tEi6SrGFP8XG9O0ljFgA">
+                            <a class="w-full min-w-xl" href="/home">
                                 <img src="https://mcqmate.com/public/images/icons/youtube.svg" alt="Youtube Button"
                                     class="h-28"/>
                             </a>
@@ -65,6 +68,9 @@ export default () => {
                 </div>
 
             </footer>
+ 
+            
+         
         </div>
     )
 }

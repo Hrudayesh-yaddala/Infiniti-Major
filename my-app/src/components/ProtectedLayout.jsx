@@ -11,9 +11,8 @@ const ProtectedLayout = () => {
     <div className='flex flex-col h-screen ml-1 mr-1'>
       <Header />
       <div className='flex'>
-
         <div className='flex-1 pb-10 bg-rose-100 h-screen'>
-          <Outlet/>
+          <Outlet />
         </div>
         
       </div>
