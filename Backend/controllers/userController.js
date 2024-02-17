@@ -189,10 +189,13 @@ const resetpassword = async (req, res) => {
 
 
 const textsummarization = async (req, res) => {
-  const flask_url = process.env.FLASK_URL + "/AI-API/text-summarization";
+  // const flask_url = process.env.FLASK_URL + "/AI-API/text-summarization";
+  const flask_url = "https://dev.docnlp.com/AI-API/text-summarization";
+
   const document_types = req.body.document_type;
-  console.log(document_types);
+  // console.log(document_types);
   try {
+    console.log("entered summarization")
     if (req.files.length >= 1) {
       const formData = new FormData();
 
@@ -209,7 +212,7 @@ const textsummarization = async (req, res) => {
       const pythonFlaskResponse = await axios.post(flask_url, formData, {
 
       });
-      print(pythonFlaskResponse.data.results)
+      console.log(pythonFlaskResponse.data.results)
       return res.status(200).json({ results: pythonFlaskResponse.data.results });
 
     }
@@ -221,10 +224,11 @@ const textsummarization = async (req, res) => {
       formData.append("input_content", input_content);
       const pythonFlaskResponse = await axios.post(flask_url, formData, {
       });
-      print(pythonFlaskResponse.data.results)
+      console.log(pythonFlaskResponse.data.results)
       return res.status(200).json({ results: pythonFlaskResponse.data.results });
     }
   }
+
 
   catch (err) {
     // console.error("Error Occured in Flask API:", err);
@@ -232,6 +236,50 @@ const textsummarization = async (req, res) => {
 
   }
 }
+const speechrecognition = async (req, res) => {
+  try {
+    const flask_url = process.env.FLASK_URL + "/audio-transcribe";
+   
+    const filedata = req.file;
+    const formData = new FormData();
+    const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+    formData.append('audioFile', blob, filedata.originalname);
+    console.log(formData,"---------->");
+    const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {
+      'Content-Type': 'multipart/form-data',
+    }},);
+    console.log(pythonFlaskResponse.data);
+    return res.status(200).json(pythonFlaskResponse.data)
+
+  } catch (err) {
+    console.error("Error Occurred in Flask API:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+};
+
+
+const handwrittenOcr= async (req, res) => {
+  try {
+    const flask_url = process.env.FLASK_URL + "/ocr";
+    // const flask_url =  " http://127.0.0.1:5000/ocr";
+   
+
+    const filedata = req.file;
+    const formData = new FormData();
+    const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+    formData.append('image', blob, filedata.originalname);
+    console.log(formData,"---------->");
+    const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {
+      'Content-Type': 'multipart/form-data',
+    }},);
+    console.log(pythonFlaskResponse.data);
+    return res.status(200).json(pythonFlaskResponse.data)
+
+  } catch (err) {
+    console.error("Error Occurred in Flask API:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+};
 
 
 
@@ -241,5 +289,7 @@ module.exports = {
   forgetpassword,
   resetpassword,
   textsummarization,
+  speechrecognition,
+  handwrittenOcr,
  
 };

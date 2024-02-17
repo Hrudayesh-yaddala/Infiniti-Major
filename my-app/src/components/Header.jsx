@@ -50,9 +50,9 @@ const Header = () => {
           {/* <img src="../images/hamburger-menu.svg"/> */}
           <div className="pr-10 flex space-x-6 justify-center">
             <label className="text-black text-lg  hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text conversion</label>
-            <label  className=" text-lg :bg-[#5b0e2d] bg-[#5b0e2d] text-white rounded-md p-2 cursor-pointer font-medium">Audio conversion</label>
-            <label  className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Language Translation</label>
-            <Link  to={'/text-summarization'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text summarization</Link>
+            <Link to={'/audio-transcribe'} className=" text-lg :bg-[#5b0e2d] bg-[#5b0e2d] text-white rounded-md p-2 cursor-pointer font-medium">Audio conversion</Link>
+            <Link to={'/language-translate'}  className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Language Translation</Link>
+            <Link  to={'/summarization'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text summarization</Link>
             <button
               type="button"
               className="mr-7 text-sm bg- rounded-full md:mr-0  items-right flex items-center"
