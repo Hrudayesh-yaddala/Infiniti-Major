@@ -8,7 +8,7 @@ const ProtectedLayout = () => {
     return <Navigate to={"/"} />
   }
   return (
-    <div className='flex flex-col h-screen ml-1 mr-1'>
+    <div className='flex flex-col h-screen '>
       <Header />
       <div className='flex'>
         <div className='flex-1 pb-10 bg-rose-100 h-screen'>

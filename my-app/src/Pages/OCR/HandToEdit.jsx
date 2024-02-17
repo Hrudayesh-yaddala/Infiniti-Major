@@ -6,7 +6,10 @@ import { BsTrashFill } from "react-icons/bs";
 import { toast } from 'react-hot-toast';
 import { jsPDF } from "jspdf";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import ScaleLoader from "react-spinners/ScaleLoader";
+
 import { APICall } from '../../API/APICall';
+// import audioback from '../../../public/Images/audioback.webp'
 
 
 
@@ -20,17 +23,17 @@ const HandConversion = () => {
   const[filestat,setFilestat]=useState(false);
 
 
-    const load=()=>{
-      return (
-        // <SkeletonTheme baseColor='#5b0e2d' highlightColor="#444">
-        //   <p>
-        //     <Skeleton count={3} />
-        //   </p>
-        // </SkeletonTheme>
-        <Skeleton count={10} height={100} width={100} className=' text-gray-600 bg-slate-800'/>
-      );
+    // const load=()=>{
+    //   return (
+    //     // <SkeletonTheme baseColor='#5b0e2d' highlightColor="#444">
+    //     //   <p>
+    //     //     <Skeleton count={3} />
+    //     //   </p>
+    //     // </SkeletonTheme>
+    //     <Skeleton count={10} height={100} width={100} className=' text-gray-600 bg-slate-800'/>
+    //   );
 
-    }
+    // }
     const copyClip=()=>{
       if(!resdata){
         toast.error('Failed to copy data');
@@ -108,11 +111,12 @@ const HandConversion = () => {
   return (
     <div>
       {/* <video src="/Videos/dustparticles.mp4" autoPlay muted loop /> */}
-        <div className='flex h-screen p-32 space-x-5 bg-gradient-to-tl from-orange-400 via-purple-400 to-blue-400'>
+        {/* <div  style={{backgroundImage:`url(${'/Images/audioback.webp'})`}> */}
+        <div className='flex h-screen p-32 space-x-5 bg-white'>
             
-            <div className={`bg-[#ffa781] opacity-90 justify-center items-center rounded-lg ${resdata ? "w-1/2": "w-1/2" }`}>
+            <div className={`bg-[#ffa781]  justify-center items-center rounded-lg ${resdata ? "w-1/2": "w-1/2" }`}>
      
-
+            {/* <img src='/Images/audioback.webp' className=' w-full h-full'/> */}
                 
                 {filestat?(
                    <div className=' w-1/2 mt-20 ml-32'>
@@ -155,10 +159,10 @@ const HandConversion = () => {
                 
        
             </div>
-            {resdata && (
-                <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
+           
+                {/* <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
                 <div className=' px-10 py-10'>
-                  { loading ? load():( <textarea className=' w-full p-3 text-left h-72 bg-[#83294d] text-white border border-gray-400' value={resdata}></textarea>)}  
+                  <textarea className=' w-full p-3 text-left h-72 bg-[#83294d] text-white border border-gray-400' value={resdata}></textarea>
                 </div>
                 <div className=' flex justify-end space-x-3 mt-12'>
                 <MdOutlineDownload onClick={downloadcopy} className=' cursor-pointer text-white p-2 rounded-lg  bg-[#5b0e2d] text-4xl'/>
@@ -166,8 +170,43 @@ const HandConversion = () => {
                 <div className=' w-5'></div>
                 </div>
                 
-            </div>
-            )}
+            </div> */}
+          
+          {loading ? (
+                <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
+                   
+                <div className=' px-10 py-10'>
+                 <div className=' w-full p-3 h-72 bg-[#83294d]  border border-gray-400  flex justify-center items-center' >
+                 <ScaleLoader loading={loading} className="text-cyan-900 text-9xl ml p-8" />
+                 </div>
+               </div>
+               <div className=' flex justify-end space-x-3 mt-12'>
+               <MdOutlineDownload onClick={downloadcopy} className=' cursor-pointer text-white p-2 rounded-lg  bg-[#5b0e2d] text-4xl'/>
+               <MdContentCopy onClick={copyClip} className=' cursor-pointer text-white bg-[#5b0e2d] rounded-lg text-4xl p-2'/>
+               <div className=' w-5'></div>
+               </div>
+              
+               
+               </div>
+               
+              ): (
+                (resdata && 
+                  <div className=' w-1/2 bg-[#ffa781]  rounded-lg'>
+                   
+                 <div className=' px-10 py-10'>
+                  <textarea className=' w-full p-3 text-left h-72 bg-[#83294d] text-white border border-gray-400' value={resdata}></textarea>
+                </div>
+                <div className=' flex justify-end space-x-3 mt-12'>
+                <MdOutlineDownload onClick={downloadcopy} className=' cursor-pointer text-white p-2 rounded-lg  bg-[#5b0e2d] text-4xl'/>
+                <MdContentCopy onClick={copyClip} className=' cursor-pointer text-white bg-[#5b0e2d] rounded-lg text-4xl p-2'/>
+                <div className=' w-5'></div>
+                </div>
+               
+                
+                </div> )
+                )
+                }
+            
           
         </div>
     </div>

@@ -13,6 +13,8 @@ import Audioconv from "../Pages/Audio-Transcribe/AudioHome";
 import AudioTransform from "../Pages/Audio-Transcribe/AudioTransform";
 import Audiotranscribe from "../Pages/Audio-Transcribe/Audiotranscribe";
 import Pricing from "../Pages/Audio-Transcribe/Pricing";
+import LanguageTranslate from "../Pages/LanguageTranslation/LanguageTranslate";
+
 import { NotFound } from "./NotFound";
 import { ForgetPassword } from "./ForgetPassword";
 import { ResetPassword } from "./ResetPassword";
@@ -41,6 +43,8 @@ function App(){
                         <Route path="audio-transform"  element={<AudioTransform/>}/> 
                         <Route path="audio-main"  element={<Audiotranscribe/>}/> 
                         <Route path="hand-to-edit"  element={<HandConversion/>}/> 
+                        <Route path="language-translate"  element={<LanguageTranslate/>}/> 
+
 
 
 

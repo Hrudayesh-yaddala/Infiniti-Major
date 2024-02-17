@@ -59,9 +59,9 @@ export const Featurecards = () => {
                                     <img src={variousfile} className="w-full"/>                                 
                                 </div>
                             </div>
-                            <div className="p-6">
+                            <Link to={'/language-translate'} className="p-6">
                                 <h5 className="mb-2 text-lg font-bold text-white">Language Translation</h5>                       
-                            </div>
+                            </Link>
                         </div>
                     </div>
                   
