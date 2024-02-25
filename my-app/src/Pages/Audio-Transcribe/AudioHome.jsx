@@ -6,7 +6,8 @@ import Audio2 from "./audio2";
 import Audio3 from "./Audio3";
 import Audio4 from "./Audio4";
 import Audio5 from "./Audio5";
-import Footer from "../../components/Footer";
+// import Footer from "../../components/Footer";
+import Footer from "../HomePage/Footer";
 const Audioconv = () => {
 
 

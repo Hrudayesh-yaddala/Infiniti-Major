@@ -1,4 +1,4 @@
-import NLP from '../Images/nlp.webp';
+// import NLP from '../Images/nlp.webp';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
@@ -42,11 +42,11 @@ export default()=>{
                     
                     </div>
                     {/* <p className='text-black font-medium text-lg mt-6'>We believe that legal assistance should be accessible to everyone. LawQue connects you with our network of professional lawyers, providing you with the guidance and support you need, whenever you need it. Whether you're seeking advice, consultations, or full legal representation, our platform ensures a seamless experience</p> */}
-                    <Link to={'/home'} className=" bg-[#5b0e2d] rounded-xl text-white px-8 py-3 font-bold shadow-md  hover:bg-orange-900">Try Now</Link>
+                    <Link to={'/home'} className=" bg-[#5b0e2d] rounded-xl text-white px-8 py-3 font-bold shadow-black shadow-lg transition-colors duration-300 hover:bg-orange-900">Try Now</Link>
                     </div>
                     
                 </div>
-                <div className='w-1/2 px-40 py-8 mt-14 '><img src={NLP} alt='background-display' className=' rounded-2xl shadow-2xl shadow-orange-800 bg-[#5b0e2d] '></img></div>
+                <div className='w-1/2 px-40 py-8 mt-14'><img src='/Images/nlp.webp' alt='background-display' className=' rounded-2xl shadow-2xl shadow-orange-800 bg-[#5b0e2d] '></img></div>
             </div>
             
         </div>

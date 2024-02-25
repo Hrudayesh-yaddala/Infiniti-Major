@@ -19,6 +19,7 @@ const signup = async (req, res) => {
 
     // console.log(phone)
     if (!firstname || !lastname || !email || !password || !phone) {
+
       return res.status(400).json({ message: "Fill all Details" });
     }
 
@@ -239,6 +240,7 @@ const textsummarization = async (req, res) => {
 const speechrecognition = async (req, res) => {
   try {
     const flask_url = process.env.FLASK_URL + "/audio-transcribe";
+    // const flask_url=" http://127.0.0.1:5000/audio-transcribe"
    
     const filedata = req.file;
     const formData = new FormData();

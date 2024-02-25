@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Home from "./Home";
-import Register from "./Register";
-import Login from "./Login";
+// import Home from "./Home";
+import Home from "../Pages/HomePage/Home";
+// import Register from "./Register";
+// import Login from "./Login";
+import Register from '../Pages/Authentication/Register';
+import Login from '../Pages/Authentication/Login';
 import Summarize from "./Summarization"
 // import Audioconv from "./Audioconv";
 // import AudioTransform from "./AudioTransform";
