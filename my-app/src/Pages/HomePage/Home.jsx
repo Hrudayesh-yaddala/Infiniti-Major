@@ -6,7 +6,6 @@ import Testimonials from "./Testimonials";
 // import background from "../Images/background.png";
 import Initial from "./Initial";
 import Initialpag from "./Initialpag";
-// import VideoIntroduce from "./VideoIntroduce";
 
 import Footer from "./Footer";
 function Home() {
@@ -17,7 +16,6 @@ function Home() {
       
         <Initial/>
         <Initialpag/>
-{/*         <VideoIntroduce/> */}
         <Featurecards/>
         <Testimonials/>
         <Footer/>
