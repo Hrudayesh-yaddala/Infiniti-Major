@@ -1,11 +1,13 @@
 
 import React from "react";
-import { Featurecards } from "./Featurecards";
+// import { Featurecards } from "./Featurecards";
+import { Featurecards } from "../../components/Featurecards";
 import Testimonials from "./Testimonials";
 // import background from "../Images/background.png";
 import Initial from "./Initial";
 import Initialpag from "./Initialpag";
-import Confet from "./Confet";
+import VideoIntroduce from "./VideoIntroduce";
+
 import Footer from "./Footer";
 function Home() {
     return (
@@ -15,6 +17,7 @@ function Home() {
       
         <Initial/>
         <Initialpag/>
+        <VideoIntroduce/>
         <Featurecards/>
         <Testimonials/>
         <Footer/>
