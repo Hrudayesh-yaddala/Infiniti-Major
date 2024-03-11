@@ -68,9 +68,34 @@ export default () => {
                 </div>
 
             </footer>
+
+{/* <div className="relative overflow-y-hidden overflow-x-hidden">
+        <div className="bg-home bg-no-repeat h-screen bg-center bg-cover ">
+          <video
+            autoPlay
+            loop
+            muted
+            className="absolute inset-0 object-cover w-full h-full xl:h-auto"
+            src="/Videos/dustparticles.mp4"
+          />
+            {/* <source src="/Videos/dustparticles.mp4" type="video/mp4" /> */}
+          {/* </video> */}
+            {/* <div className="absolute inset-0">
+                    
+            </div>
+          </div>
+</div>  */}
  
             
          
         </div>
     )
 }
+
+
+
+
+
+
+    
+
