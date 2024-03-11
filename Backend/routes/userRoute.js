@@ -3,7 +3,7 @@ const { isAuthenticated } = require("../Middleware/verifyJWT");
 const storage = multer.memoryStorage();
 const express = require("express");
 const upload = multer({ storage });
-const {signup,signin,forgetpassword,resetpassword,textsummarization,speechrecognition,handwrittenOcr} = require("../controllers/userController");
+const {signup,signin,forgetpassword,resetpassword,textsummarization,speechrecognition,handwrittenOcr,text2speech,languagetranslation} = require("../controllers/userController");
 // const userController = require("../controllers/userController");
 
 const router = express.Router();
@@ -15,6 +15,9 @@ router.post("/text-summarization", upload.array('documents'), textsummarization)
 router.post("/audio-transform",upload.single('audioFile'),speechrecognition);
 // router.post("/audio-transform",upload.single('audioFile'),speechrecognition);
 router.post("/hand-to-edit",upload.single('ImageFile'),handwrittenOcr);
+router.post("/text-to-speech",upload.single('input_document'),text2speech);
+router.post("/language-translation",upload.single('input_document'),languagetranslation);
+
 
 
 

@@ -49,8 +49,8 @@ const Header = () => {
           </Link>
           {/* <img src="../images/hamburger-menu.svg"/> */}
           <div className="pr-10 flex space-x-6 justify-center">
-            <label className="text-black text-lg  hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text conversion</label>
-            <Link to={'/audio-transcribe'} className=" text-lg :bg-[#5b0e2d] bg-[#5b0e2d] text-white rounded-md p-2 cursor-pointer font-medium">Audio conversion</Link>
+            <Link  to={'/audio-transcribe'} className="text-black text-lg  hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Audio conversion</Link>
+            <Link to={'/hand-to-edit'} className=" text-lg :bg-[#5b0e2d] bg-[#5b0e2d] text-white rounded-md p-2 cursor-pointer font-medium">Text conversion</Link>
             <Link to={'/language-translate'}  className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Language Translation</Link>
             <Link  to={'/summarization'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Text summarization</Link>
             <button
@@ -106,4 +106,9 @@ const Header = () => {
   );
 };
 
+
 export default Header;
+
+
+
+

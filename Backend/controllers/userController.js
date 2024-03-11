@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const axios = require('axios');
+const { text } = require("stream/consumers");
 require("dotenv").config();
 const _email = process.env.EMAIL
 const _password = process.env.EMAIL_PASSWORD
@@ -240,13 +241,14 @@ const textsummarization = async (req, res) => {
 const speechrecognition = async (req, res) => {
   try {
     const flask_url = process.env.FLASK_URL + "/audio-transcribe";
+
     // const flask_url=" http://127.0.0.1:5000/audio-transcribe"
    
     const filedata = req.file;
     const formData = new FormData();
     const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
     formData.append('audioFile', blob, filedata.originalname);
-    console.log(formData,"---------->");
+    // console.log(formData,"---------->");
     const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {
       'Content-Type': 'multipart/form-data',
     }},);
@@ -263,14 +265,13 @@ const speechrecognition = async (req, res) => {
 const handwrittenOcr= async (req, res) => {
   try {
     const flask_url = process.env.FLASK_URL + "/ocr";
-    // const flask_url =  " http://127.0.0.1:5000/ocr";
    
 
     const filedata = req.file;
     const formData = new FormData();
     const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
     formData.append('image', blob, filedata.originalname);
-    console.log(formData,"---------->");
+    // console.log(formData,"---------->");
     const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {
       'Content-Type': 'multipart/form-data',
     }},);
@@ -283,6 +284,104 @@ const handwrittenOcr= async (req, res) => {
   }
 };
 
+// const text2speech= async(req,res)=>{
+//   const flask_url=process.env.FLASK_URL+'/text-to-speech'
+//   try{
+//     const formdata=new FormData();
+//     const input_type=req.body.input_type;
+//     formdata.append("input_type",input_type);
+//     console.log(input_type,"-------->");
+//     // console.log(req.file);
+//     if(input_type=='text'){
+//       const inp_text=req.body.input_text;
+//       console.log(inp_text);
+//       formdata.append("input_text",inp_text);
+//       const pythonFlaskResponse= await axios.post(flask_url,formdata,{});
+//       // console.log(pythonFlaskResponse.data);
+//       return res.status(200).json(pythonFlaskResponse.data);
+//     }
+//     else{
+//       const filedata=req.file;
+//       console.log(req.file);
+//       const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+//       formdata.append('input_document', blob, filedata.originalname);
+//       // console.log(formData,"---------->");
+//       const pythonFlaskResponse = await axios.post(flask_url,formdata,{});
+//       // console.log(pythonFlaskResponse.data);
+//       return res.status(200).json(pythonFlaskResponse.data)
+
+//     }
+
+//   }
+//   catch (err) {
+//     console.error("Error Occurred in Flask API:", err);
+//     return res.status(500).json({ message: err.message, results: err });
+//   }
+// }
+
+const text2speech = async (req, res) => {
+  const flask_url = process.env.FLASK_URL + '/text-to-speech';
+  try {
+    const formdata = new FormData();
+    const input_type = req.body.input_type;
+    formdata.append("input_type", input_type);
+
+    if (input_type === 'text') {
+      const inp_text = req.body.input_text;
+      formdata.append("input_text", inp_text);
+    } else {
+      const filedata = req.file;
+      const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+      formdata.append('input_document', blob, filedata.originalname);
+    }
+
+    const pythonFlaskResponse = await axios.post(flask_url, formdata, {
+      responseType: 'blob' 
+    });
+
+    // Set the Content-Type header to indicate that it's an audio file
+    res.set('Content-Type', 'audio/mpeg');
+    res.status(200).send(pythonFlaskResponse.data);
+  } catch (err) {
+    console.error("Error Occurred in Flask API:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+}
+
+
+
+
+const languagetranslation = async (req, res) => {
+  // console.log("backend-translation")
+  const flask_url = process.env.FLASK_URL + '/translate';
+  // const flask_url="http://127.0.0.1:5000/translate";
+
+  try {
+    const formdata = new FormData();
+    const input_type = req.body.input_type;
+    const input_language=req.body.input_language;
+    formdata.append("input_type", input_type);
+    formdata.append("input_language",input_language);
+
+    if (input_type === 'text') {
+      const inp_text = req.body.input_text;
+      formdata.append("input_text", inp_text);
+    } else {
+      const filedata = req.file;
+      const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+      formdata.append('input_document', blob, filedata.originalname);
+    }
+
+    const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
+    console.log(pythonFlaskResponse.data,"------->");
+    res.status(200).json(pythonFlaskResponse.data);
+  } catch (err) {
+    console.error("Error Occurred in Flask API:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+}
+
+
 
 
 module.exports = {
@@ -293,5 +392,8 @@ module.exports = {
   textsummarization,
   speechrecognition,
   handwrittenOcr,
+  text2speech,
+  languagetranslation,
+
  
 };

@@ -1,7 +1,9 @@
 export default () => {
     return (
         <div>
-            <div class="container my-24 mx-auto md:px-6">
+            <div className=" h-32 bg-white"></div>
+            <div class="container my-24 mx-auto md:px-6  mt-20">
+                
                 <section class="mb-32 text-center">
                     <h2 class="mb-12 text-4xl font-bold text-[#5b0e2d]">Testimonials</h2>
 

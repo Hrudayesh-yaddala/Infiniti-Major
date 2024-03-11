@@ -17,6 +17,7 @@ import AudioTransform from "../Pages/Audio-Transcribe/AudioTransform";
 import Audiotranscribe from "../Pages/Audio-Transcribe/Audiotranscribe";
 import Pricing from "../Pages/Audio-Transcribe/Pricing";
 import LanguageTranslate from "../Pages/LanguageTranslation/LanguageTranslate";
+import TexttoSpeech from "..//Pages/Text-speech/TexttoSpeech";
 
 import { NotFound } from "./NotFound";
 import { ForgetPassword } from "./ForgetPassword";
@@ -47,6 +48,8 @@ function App(){
                         <Route path="audio-main"  element={<Audiotranscribe/>}/> 
                         <Route path="hand-to-edit"  element={<HandConversion/>}/> 
                         <Route path="language-translate"  element={<LanguageTranslate/>}/> 
+                        <Route path="text-to-speech"  element={<TexttoSpeech/>}/> 
+
 
 
 

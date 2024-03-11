@@ -63,13 +63,14 @@ const Login = () => {
       if (response.status === 400) toast.error("Fill all details");
       else if (response.status === 200) {
         const { message, firstname } = response.data;
-        toast.success(`${message}. Welcome, ${firstname}!`);
+        // toast.success(`${message}. Welcome, ${firstname}!`);
         localStorage.setItem("firstname", response.data.firstname);
         localStorage.setItem("token", response.data.accessToken);
-        localStorage.setItem("taskid", response.data.uniqueObjid);
-        setTimeout(() => {
-          navigate("/home");
-        }, 1000);
+        // localStorage.setItem("taskid", response.data.uniqueObjid);
+        // setTimeout(() => {
+        //   navigate("/home");
+        // }, 1000);
+        navigate("/home", { state: { message, firstname } }); // Passing message and firstname as state
       } else if (response.status === 401) toast.error("Invalid Credentials");
       else if (response.status === 404) {
         toast.error("User Not Found");
@@ -131,10 +132,10 @@ const Login = () => {
 
                         <div class="mt-6">
                         {
-                            loading ? (<button type="submit" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-[#5b0e2d] rounded-lg hover:bg-orange-900 focus:outline-none focus:bg-[#5b0e2d] focus:ring focus:ring-blue-300 focus:ring-opacity-50" onClick={handleSubmit}>
+                            loading ? (<button type="submit" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-[#5b0e2d] rounded-lg hover:bg-orange-900 focus:outline-none focus:bg-[#5b0e2d]  focus:ring-opacity-50" onClick={handleSubmit}>
                                       <BeatLoader loading={loading} className="text-cyan-900 text-3xl" />
                         </button>):
-                          <button type="submit" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-[#5b0e2d] rounded-lg hover:bg-orange-900 focus:outline-none focus:bg-[#5b0e2d] focus:ring focus:ring-blue-300 focus:ring-opacity-50" onClick={handleSubmit}>
+                          <button type="submit" class="w-full px-4 py-2 text-white  duration-300 bg-[#5b0e2d] rounded-lg hover:bg-orange-900 focus:bg-[#5b0e2d] " onClick={handleSubmit}>
                           Sign in
                       </button>
                         }
