@@ -8,6 +8,7 @@ import Initialpag from "./Initialpag";
 // import VideoIntroduce from "./VideoIntroduce";
 import Industries from "./Industries";
 import { useLocation } from "react-router-dom";
+
 import Footer from "./Footer";
 import { useEffect } from "react";
 import Productivity from "./Productivity";
@@ -36,11 +37,13 @@ function Home() {
         
         <Initial/>
         <Initialpag/>
+
         {/* <VideoIntroduce/> */}
         {/* <Industries/> */}
         <Productivity/>
         <Features/>
         {/* <Featurecards/> */}
+
         <Testimonials/>
         <Footer/>
         
