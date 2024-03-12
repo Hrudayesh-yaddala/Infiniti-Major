@@ -66,6 +66,7 @@ const Login = () => {
         // toast.success(`${message}. Welcome, ${firstname}!`);
         localStorage.setItem("firstname", response.data.firstname);
         localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem('toastDisplayed', 'false');
         // localStorage.setItem("taskid", response.data.uniqueObjid);
         // setTimeout(() => {
         //   navigate("/home");
@@ -92,13 +93,13 @@ const Login = () => {
       
         <div class="hidden bg-cover lg:block lg:w-2/3 bg-[url('/Images/bg.webp')]">
            
-            <div class="flex items-center h-full px-20 bg-[#ffa781] bg-opacity-10 ml-6">
+            <div class="flex items-center bg-opacity-10 h-full px-20 ml-6">
                 <div>
-                    <h2 class="text-4xl font-bold text-white sm:text-3xl">Infiniti Script</h2>
+                    <h2 class="md:text-5xl underline decoration-double underline-offset-2 hover:underline-offset-4 font-bold text-orange-600 leading-tight sm:text-3xl" >Infiniti Script</h2>
 
-                    <p class="max-w-xl mt-3 text-black font-bold">
-                    "Welcome to a new era of communication! Our innovative NLP-powered application is here to transform the way you interact with text and speech.
-                     Discover efficiency, security, and inclusivity in one seamless experience. Join us on this exciting journey today!"
+                    <p className="max-w-2xl text-2xl hover:subpixel-antialiased mt-4 text-orange-50 font-bold prose" style={{ textShadow: "1px 1px 2px black" }}>
+                        "Welcome to a new era of communication! Our innovative NLP-powered application is here to transform the way you interact with text and speech.
+                        Discover efficiency, security, and inclusivity in one seamless experience. Join us on this exciting journey today!"
                     </p>
                 </div>
             </div>
