@@ -20,11 +20,12 @@ function Home() {
   var toastDisplayed=true;
 
   useEffect(() => {
-    if (toastDisplayed&& location.state && location.state.message && location.state.firstname) {
-        toast.success(`${location.state.message}. Welcome, ${location.state.firstname}!`);
-        // setToastDisplayed(false);
-        toastDisplayed=false;
+    const toastDisplayed = localStorage.getItem('toastDisplayed');
+    console.log(toastDisplayed)
 
+    if (toastDisplayed == 'false' && location.state && location.state.message && location.state.firstname) {
+        toast.success(`${location.state.message}. Welcome, ${location.state.firstname}!`);
+        localStorage.setItem('toastDisplayed', 'true');
     }
 }, [location.state]);
 
