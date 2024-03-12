@@ -9,6 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import ForgetImage from "../Images/forget.webp";
 // import { APICall } from "../API/APICall";
 import { APICall } from "../../API/APICall";
+import { TypeAnimation } from 'react-type-animation';
 
 
 const Login = () => {
@@ -98,8 +99,21 @@ const Login = () => {
                     <h2 class="md:text-5xl underline decoration-double underline-offset-2 hover:underline-offset-4 font-bold text-orange-600 leading-tight sm:text-3xl" >Infiniti Script</h2>
 
                     <p className="max-w-2xl text-2xl hover:subpixel-antialiased mt-4 text-orange-50 font-bold prose" style={{ textShadow: "1px 1px 2px black" }}>
-                        "Welcome to a new era of communication! Our innovative NLP-powered application is here to transform the way you interact with text and speech.
-                        Discover efficiency, security, and inclusivity in one seamless experience. Join us on this exciting journey today!"
+                    <TypeAnimation
+                        sequence={[
+                            // Same substring at the start will only be typed out once, initially
+                            "Welcome to a new era of communication! Our innovative NLP-powered application is here to transform the way you interact with text and speech.Discover efficiency, security, and inclusivity in one seamless experience. Join us on this exciting journey today!",
+                            1000, // wait 1s before replacing "Mice" with "Hamsters"
+                            'Entrance to our application is on the right 👉🏻',
+                            3000,
+                            ''
+                        ]}
+                        wrapper="span"
+                        speed={30}
+                        repeat={Infinity}
+                        />
+                        {/* "Welcome to a new era of communication! Our innovative NLP-powered application is here to transform the way you interact with text and speech.
+                        Discover efficiency, security, and inclusivity in one seamless experience. Join us on this exciting journey today!" */}
                     </p>
                 </div>
             </div>
