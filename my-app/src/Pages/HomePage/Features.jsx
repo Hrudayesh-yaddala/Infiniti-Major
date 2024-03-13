@@ -56,13 +56,13 @@ const Features = () => {
                             <p class="mt-6 text-base text-black font-pj">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
                         </div>
                     </Link>
-                    <div class="overflow-hidden bg-[#5b0e2d] shadow-md rounded-xl">
+                    <Link to={'/text-paraphraser'} class="overflow-hidden bg-[#5b0e2d] shadow-md rounded-xl">
                         <div class="p-9">
                             <p class="text-4xl">✍</p>
                             <h3 class="mt-6 text-2xl font-bold sm:mt-10 font-pj text-white">Paraphraser</h3>
                             <p class="mt-6 text-base text-white font-pj">Go back and forth your changes or updates easily using an undo and redo button.</p>
                         </div>
-                    </div>
+                    </Link>
                     <div class="relative">
                         <div class="absolute -inset-1">
                             <div class="w-full h-full rotate-180 opacity-50 blur-md filter   bg-gradient-to-r from-purple-600 to-black">

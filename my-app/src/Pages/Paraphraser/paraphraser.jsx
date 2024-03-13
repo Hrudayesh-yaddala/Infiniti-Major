@@ -13,7 +13,7 @@ import { APICall } from '../../API/APICall';
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 
-const LanguageTranslate = () => {
+const paraphraser = () => {
 
  
   const[resdata,setResdata]=useState('');
@@ -160,23 +160,23 @@ const LanguageTranslate = () => {
         
         <div className='  gap-x-28 flex items-center justify-center h-screen w-screen container'>
 
-      
+        <h1>Feature is under progress...</h1>
             <div className=' w-96 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-75'>
                 
                 {filestat?(
-                   <div className=' border border-dashed border-black h-40 w-52 rounded-md space-y-12 '>
+                   <div className=' border-black h-40 w-52 rounded-md space-y-12 '>
                    {/* <div class="flex items-center justify-center w-full "> */}
-               <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
+               <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
                    <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
               
-                       <MdCloudDone className=' text-[#5b0e2d] text-5xl'/>
-                       <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">File selected</span></p>
-                       <p class="text-xs text-gray-500 dark:text-gray-400">{srcfile.name}</p>
+                       <MdCloudDone className=' text-[#f97f4a] text-5xl'/>
+                       <p class="mb-2 text-sm text-black "><span class="font-bold">File selected</span></p>
+                       <p class="text-xs text-black font-semibold">{srcfile.name}</p>
                    </div>
                </label>
                <div className=' flex justify-center items-center space-x-3 '>
-                <BsTrashFill className=' text-white bg-[#5b0e2d] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
-                <button className='bg-[#5b0e2d] p-2 rounded-lg text-white font-bold' type='submit' onClick={TranscribeFile}>Proceed</button>
+                <BsTrashFill className=' text-stone-950 bg-[#f97f4a] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
+                <button className=' bg-[#f97f4a] p-2 rounded-lg text-stone-950 font-bold' type='submit' onClick={TranscribeFile}>Proceed</button>
       
                 </div>
            {/* </div> */}
@@ -184,42 +184,22 @@ const LanguageTranslate = () => {
                 ):(
                  
                    <div className=' flex justify-center items-center flex-col gap-y-3'>
-                    <div className=' flex justify-center items-center gap-x-4'>
+                    {/* <div className=' flex justify-center items-center gap-x-4'>
                         <div className=' w-40 bg-gray-300 rounded-full gap-x-3 flex items-center justify-center p-2'>
                             <button className={ `h-7 w-full font-semibold  rounded-full ${textfileinput? "": "bg-[#ffa781] "} transition duration-500`} onClick={()=> setTextfileinput(false)}>File </button>
                             <button className={`${textfileinput? "bg-[#ffa781]" :" "}  w-full font-semibold h-8 rounded-full transition duration-500`} onClick={()=> setTextfileinput(true)}>Text</button>
 
                             </div>
                         
-                          <form class="max-w-sm mx-auto">
-                            {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
-                            <select id="languages" value={lang} onChange={(e)=>setLanguage(e.target.value)} class="bg-gray-200 border border-black font-semibold text-sm rounded-lg focus:ring-black focus:border-black block w-full p-2.5 ">
-                              <option selected>Choose a language</option>
-                              <option value="bn">Bengali</option>
-                              <option value="bh">Bihari</option>
-                              <option value="zh-TW">Chinese</option>
-                              <option value="en">English</option>
-                              <option value="fr">French</option>
-                              <option value="de">German</option>
-                              <option value="gu">Gujarati</option>
-                              <option value="hi">Hindi</option>
 
-                              <option value="id">Indonesian</option>
-                              <option value="ja">Japanese</option>
-                              <option value="kn">Kannada</option>
-                              <option value="ml">Malayalam</option>
-                              <option value="mr">Marathi</option>
-                              <option value="pa">Punjabi</option>
-                              <option value="ta">Tamil</option>
-                              <option value="te">Telugu</option>
-                            </select>
-                          </form>
+                    </div>   */}
+                     <div className=' w-52 bg-gray-400 rounded-full gap-x-7 flex items-center justify-center p-2'>
+                        <button className={ `h-8 w-full font-bold  rounded-full ${textfileinput? "": "bg-[#f97f4a] "} transition duration-500`} onClick={()=> setTextfileinput(false)}>File </button>
+                        <button className={`${textfileinput? "bg-[#f37c4a]" :" "}  w-full font-bold h-8 rounded-full transition duration-500`} onClick={()=> setTextfileinput(true)}>Text</button>
 
-
-
-                    </div>  
+                        </div>
                       
-                      <div className={` border border-dashed border-black h-56 w-72 rounded-md transition duration-500 ${textfileinput ? "hidden":"block" } `}>
+                      <div className={` h-56 w-72 rounded-md transition duration-500 ${textfileinput ? "hidden":"block" } `}>
                               {/* <div class="flex items-center justify-center w-full"> */}
                                   <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50 ">
                                       <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
@@ -282,7 +262,7 @@ const LanguageTranslate = () => {
   )
 }
 
-export default LanguageTranslate;
+export default paraphraser;
 
 
 
