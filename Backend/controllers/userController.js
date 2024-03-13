@@ -5,6 +5,10 @@ const nodemailer = require("nodemailer");
 const axios = require('axios');
 const { text } = require("stream/consumers");
 require("dotenv").config();
+const path = require('path');
+const fs = require('fs');
+
+
 const _email = process.env.EMAIL
 const _password = process.env.EMAIL_PASSWORD
 const signup = async (req, res) => {
@@ -265,7 +269,8 @@ const speechrecognition = async (req, res) => {
 const handwrittenOcr= async (req, res) => {
   try {
     const flask_url = process.env.FLASK_URL + "/ocr";
-   
+    // const flask_url=" http://127.0.0.1:5000/ocr"
+
 
     const filedata = req.file;
     const formData = new FormData();
@@ -336,10 +341,9 @@ const text2speech = async (req, res) => {
     }
 
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {
-      responseType: 'blob' 
+      responseType: 'arraybuffer' 
     });
 
-    // Set the Content-Type header to indicate that it's an audio file
     res.set('Content-Type', 'audio/mpeg');
     res.status(200).send(pythonFlaskResponse.data);
   } catch (err) {
