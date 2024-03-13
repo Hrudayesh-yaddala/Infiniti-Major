@@ -171,17 +171,17 @@ const TexttoSpeech = () => {
                 {filestat?(
                    <div className=' border border-dashed border-black h-40 w-52 rounded-md space-y-12 '>
                    {/* <div class="flex items-center justify-center w-full "> */}
-               <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
+               <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
                    <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
               
-                       <MdCloudDone className=' text-[#5b0e2d] text-5xl'/>
-                       <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">File selected</span></p>
-                       <p class="text-xs text-gray-500 dark:text-gray-400">{srcfile.name}</p>
+                       <MdCloudDone className=' text-[#f97f4a] text-5xl'/>
+                       <p class="mb-2 text-sm text-black"><span class="font-semibold">File selected</span></p>
+                       <p class="text-xs text-black">{srcfile.name}</p>
                    </div>
                </label>
                <div className=' flex justify-center items-center space-x-3 '>
-                <BsTrashFill className=' text-white bg-[#5b0e2d] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
-                <button className='bg-[#5b0e2d] p-2 rounded-lg text-white font-bold' type='submit' onClick={TranscribeFile}>Proceed</button>
+                <BsTrashFill className=' text-stone-950 bg-[#f97f4a] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
+                <button className=' bg-[#f97f4a] p-2 rounded-lg text-stone-950 font-bold' type='submit' onClick={TranscribeFile}>Proceed</button>
       
                 </div>
            {/* </div> */}

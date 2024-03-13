@@ -1,3 +1,4 @@
+
 import profilelogo from "../Images/profilelogo.webp";
 import NavImage from '../Images/nav.webp'
 import React, { useState, useRef } from "react";
@@ -5,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 
-const Header = () => {
+const AplHeader = () => {
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdownOpen1, setIsDropdownOpen1] = useState(false);
@@ -58,7 +59,7 @@ const Header = () => {
   };
 
   return (
-    <header className=" bg-[#ffa781]">
+    <header className=" bg-stone-950">
       <nav className="px-4 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* <h1 className="ml-4">DocNLP</h1> */}
@@ -78,7 +79,7 @@ const Header = () => {
               aria-expanded={isDropdownOpen1}
               onClick={() => toggleDropdown(1)}
             >
-              <div className="text-lg text-black ml-2 flex items-center   hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium transition delay-100">
+              <div className="text-lg text-white ml-2 flex items-center   hover:bg-[#f48a5d] hover:text-black rounded-md p-2 cursor-pointer font-medium transition duration-500">
                   Audio Conversion
                   <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
@@ -115,7 +116,7 @@ const Header = () => {
               aria-expanded={isDropdownOpen2}
               onClick={() => toggleDropdown(2)}
             >
-              <div className="text-lg text-black ml-2 flex items-center   hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium transition delay-100">
+              <div className="text-lg text-white ml-2 flex items-center hover:bg-[#f48a5d] hover:text-black rounded-md p-2 cursor-pointer font-medium transition delay-100">
                   Text Conversion
                   <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
@@ -152,7 +153,7 @@ const Header = () => {
               aria-expanded={isDropdownOpen3}
               onClick={() => toggleDropdown(3)}
             >
-              <div className="text-lg text-black ml-2 flex items-center   hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium transition delay-100">
+              <div className="text-lg text-white ml-2 flex items-center hover:bg-[#f48a5d] hover:text-black rounded-md p-2 cursor-pointer font-medium transition delay-100">
                   Text Craft
                   <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
@@ -177,7 +178,7 @@ const Header = () => {
                     </li>
                     <li>
                       
-                      <Link to={"/text-paraphraser"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] hover:text-white">Paraphraser</Link>
+                      <Link to={"/home"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] hover:text-white">Paraphraser</Link>
                     </li>
                     {/* <br/>                    */}
                   </ul>
@@ -186,7 +187,7 @@ const Header = () => {
 
             </button>
 
-            <Link  to={'/home'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Mathematical Expression</Link>
+            <Link  to={'/home'} className="text-white text-lg hover:bg-[#f48a5d] hover:text-black rounded-md p-2 cursor-pointer font-medium">Mathematical Expression</Link>
 
             
             <button
@@ -203,7 +204,7 @@ const Header = () => {
                 alt="userphoto"
               />
               {/* Dropdown menu */}
-              <div className="text-lg text-black ml-2 flex items-center">
+              <div className="text-lg text-white ml-2 flex items-center">
                   Hi, {localStorage.getItem("firstname")}
                   <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
@@ -248,7 +249,7 @@ const Header = () => {
 };
 
 
-export default Header;
+export default AplHeader;
 
 
 

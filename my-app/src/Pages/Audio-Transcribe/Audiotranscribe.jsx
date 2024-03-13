@@ -118,12 +118,12 @@ const Audiotranscribe = () => {
     <div>
 
       <div className="relative overflow-y-hidden overflow-x-hidden">
-        <div className="bg-home bg-no-repeat h-screen bg-center bg-cover ">
+        <div className="h-screen bg-center ">
           <video
             autoPlay
             loop
             muted
-            className="absolute inset-0 object-cover w-full h-full xl:h-auto"
+            className=" inset-0 object-cover w-full h-full xl:h-auto"
             src="/Videos/dustparticles.mp4"
           />
           {/* <source src="/Videos/dustparticles.mp4" type="video/mp4" /> */}
@@ -132,36 +132,36 @@ const Audiotranscribe = () => {
             <div className='  gap-x-28 flex items-center justify-center h-screen w-screen container'>
 
 
-              <div className=' w-96 h-96  flex flex-col items-center justify-center rounded-lg border-2 border-white'>
+              <div className=' w-96 h-96  flex flex-col items-center justify-center rounded-lg border-2 border-white bg-white opacity-75'>
 
                 {filestat ? (
-                  <div className=' border border-dashed border-black h-40 w-52 rounded-md space-y-12 '>
-                    {/* <div class="flex items-center justify-center w-full "> */}
-                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                      <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
-
-                        <MdCloudDone className=' text-[#5b0e2d] text-5xl' />
-                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">File selected</span></p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">{srcfile.name}</p>
-                      </div>
-                    </label>
-                    <div className=' flex justify-center items-center space-x-3 '>
-                      <BsTrashFill className=' text-white bg-[#5b0e2d] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
-                      <button className='bg-[#5b0e2d] p-2 rounded-lg text-white font-bold' type='submit' onClick={TranscribeFile}>Transcribe</button>
-
-                    </div>
-                    {/* </div> */}
-                  </div>
+                   <div className=' border border-dashed border-black h-40 w-52 rounded-md space-y-12 '>
+                   {/* <div class="flex items-center justify-center w-full "> */}
+               <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
+                   <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
+              
+                       <MdCloudDone className=' text-[#f97f4a] text-5xl'/>
+                       <p class="mb-2 text-sm text-black"><span class="font-bold">File selected</span></p>
+                       <p class="text-xs text-black font-semibold">{srcfile.name}</p>
+                   </div>
+               </label>
+               <div className=' flex justify-center items-center space-x-3 '>
+                <BsTrashFill className=' text-stone-950 bg-[#f97f4a] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} />
+                <button className=' bg-[#f97f4a] p-2 rounded-lg text-stone-950 font-bold' type='submit' onClick={TranscribeFile}>Proceed</button>
+      
+                </div>
+           {/* </div> */}
+                   </div>
                 ) : (
                   <div className=' border border-dashed border-black h-40 w-52 rounded-md'>
                     {/* <div class="flex items-center justify-center w-full"> */}
-                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ">
                       <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
-                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                        <svg class="w-8 h-8 mb-4 text-black font-bold" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                         </svg>
-                        <p class="mb-2 text-sm text-gray-500 text-center"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">Mp3,Mp4 or Wav</p>
+                        <p class="mb-2 text-sm text-black font-semibold text-center"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                        <p class="text-xs text-black font-semibold">Mp3,Mp4 or Wav</p>
                       </div>
                       <input id="dropzone-file" onChange={filehandchange} accept='audio/*,.mp3,.mp4' type="file" class="hidden" />
                     </label>
