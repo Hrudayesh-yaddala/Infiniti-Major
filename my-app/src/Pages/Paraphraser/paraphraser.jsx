@@ -160,8 +160,8 @@ const paraphraser = () => {
         
         <div className='  gap-x-28 flex items-center justify-center h-screen w-screen container'>
 
-        <h1>Feature is under progress...</h1>
-            <div className=' w-96 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-75'>
+        {/* <h1>Feature is under progress...</h1> */}
+            <div className=' w-96 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
                 
                 {filestat?(
                    <div className=' border-black h-40 w-52 rounded-md space-y-12 '>
