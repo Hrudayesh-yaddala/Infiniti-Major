@@ -233,7 +233,7 @@ const LanguageTranslate = () => {
                                   </label>
                       {/* </div> */}
                         </div>
-                        <div className={` h-56 w-80 bg-red-800 transition duration-500 ${textfileinput ? "block" : "hidden"} `}>
+                        <div className={` h-56 w-80 transition duration-500 ${textfileinput ? "block" : "hidden"} `}>
                           <textarea className=' w-full h-full border border-black rounded-lg p-2' placeholder='Provide your text here .....' onChange={InputTexthandlechange} />
                           </div>
 
@@ -252,8 +252,8 @@ const LanguageTranslate = () => {
                 
             </div>
 
-            <div className={` px-6 w-1/3 h-96 space-y-5 bg-gray-200 flex flex-col items-center justify-center rounded-lg border-2 border-[#5b0e2d] ${displayresult ? "block" : "hidden"}`}>
-            <div className=' flex items-center justify-center rounded-lg bg-slate-500 w-full h-72 mt-4'>
+            <div className={` px-6 w-1/3 h-96 space-y-5 bg-white opacity-90 flex flex-col items-center justify-center rounded-lg border-2 border-[#5b0e2d] ${displayresult ? "block" : "hidden"}`}>
+            <div className=' flex items-center justify-center rounded-lg bg-slate-300 w-full h-72 mt-4'>
               {loading ?(
                 // <div className=' flex items-center justify-center'>
                  <ScaleLoader loading={loading} className="text-cyan-900 flex self-center text-9xl ml p-8" />
@@ -263,8 +263,8 @@ const LanguageTranslate = () => {
                }
             </div>
             <div className='flex self-end space-x-3 mr-4'>
-            <MdOutlineDownload onClick={downloadcopy} className='cursor-pointer text-white p-2 rounded-lg bg-[#5b0e2d] text-4xl' />
-            <MdContentCopy onClick={copyClip} className='cursor-pointer text-white bg-[#5b0e2d] rounded-lg text-4xl p-2' />
+            <MdOutlineDownload onClick={downloadcopy} className='cursor-pointer text-black p-2 rounded-lg bg-gray-500 text-4xl' />
+            <MdContentCopy onClick={copyClip} className='cursor-pointer text-black bg-gray-500 rounded-lg text-4xl p-2' />
             </div>
           </div> 
 

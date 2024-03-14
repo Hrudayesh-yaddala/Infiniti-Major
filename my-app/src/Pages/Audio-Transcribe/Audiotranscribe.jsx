@@ -132,10 +132,10 @@ const Audiotranscribe = () => {
             <div className='  gap-x-28 flex items-center justify-center h-screen w-screen container'>
 
 
-              <div className=' w-96 h-96  flex flex-col items-center justify-center rounded-lg border-2 border-white bg-white opacity-75'>
+              <div className=' w-96 h-96  flex flex-col items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
 
                 {filestat ? (
-                   <div className=' border border-dashed border-black h-40 w-52 rounded-md space-y-12 '>
+                   <div className=' h-40 w-52 rounded-md space-y-12 '>
                    {/* <div class="flex items-center justify-center w-full "> */}
                <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
                    <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
@@ -153,7 +153,7 @@ const Audiotranscribe = () => {
            {/* </div> */}
                    </div>
                 ) : (
-                  <div className=' border border-dashed border-black h-40 w-52 rounded-md'>
+                  <div className='  h-40 w-52 rounded-md'>
                     {/* <div class="flex items-center justify-center w-full"> */}
                     <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ">
                       <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
@@ -172,21 +172,21 @@ const Audiotranscribe = () => {
 
               </div>
 
-              <div className={` px-6 w-1/3 h-96 space-y-5 flex flex-col items-center justify-center rounded-lg border-2 border-[#5b0e2d] ${displayresult ? "block" : "hidden"}`}>
-                <div className=' flex items-center justify-center rounded-lg bg-slate-500 w-full h-72 mt-4'>
-                  {loading ? (
-                    // <div className=' flex items-center justify-center'>
-                    <ScaleLoader loading={loading} className="text-cyan-900 flex self-center text-9xl ml p-8" />
+              <div className={` px-6 w-1/3 h-96 space-y-5 bg-white opacity-90 flex flex-col items-center justify-center rounded-lg border-2 border-[#5b0e2d] ${displayresult ? "block" : "hidden"}`}>
+            <div className=' flex items-center justify-center rounded-lg bg-slate-300 w-full h-72 mt-4'>
+              {loading ?(
+                // <div className=' flex items-center justify-center'>
+                 <ScaleLoader loading={loading} className="text-cyan-900 flex self-center text-9xl ml p-8" />
 
-                  ) :
-                    <textarea className=' w-full p-3 text-left h-72 bg-[#83294d] rounded-lg text-white border border-gray-400' value={resdata}></textarea>
-                  }
-                </div>
-                <div className='flex self-end space-x-3 mr-4'>
-                  <MdOutlineDownload onClick={downloadcopy} className='cursor-pointer text-white p-2 rounded-lg bg-[#5b0e2d] text-4xl' />
-                  <MdContentCopy onClick={copyClip} className='cursor-pointer text-white bg-[#5b0e2d] rounded-lg text-4xl p-2' />
-                </div>
-              </div>
+              ) : 
+              <textarea className=' w-full p-3 text-left h-72 bg-[#ffa781] rounded-lg text-black font-semibold text-sm border border-black' value={resdata}></textarea> 
+               }
+            </div>
+            <div className='flex self-end space-x-3 mr-4'>
+            <MdOutlineDownload onClick={downloadcopy} className='cursor-pointer text-black p-2 rounded-lg bg-gray-500 text-4xl' />
+            <MdContentCopy onClick={copyClip} className='cursor-pointer text-black bg-gray-500 rounded-lg text-4xl p-2' />
+            </div>
+          </div> 
 
 
 
