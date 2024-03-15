@@ -274,12 +274,11 @@ const handwrittenOcr= async (req, res) => {
 
     const filedata = req.file;
     const formData = new FormData();
+    const key = filedata.mimetype.startsWith('image') ? 'image' : 'pdf';
     const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
-    formData.append('image', blob, filedata.originalname);
+    formData.append(key, blob, filedata.originalname);
     // console.log(formData,"---------->");
-    const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {
-      'Content-Type': 'multipart/form-data',
-    }},);
+    const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {}},);
     console.log(pythonFlaskResponse.data);
     return res.status(200).json(pythonFlaskResponse.data)
 
@@ -386,7 +385,35 @@ const languagetranslation = async (req, res) => {
 }
 
 
+const paraphraser = async (req, res) => {
+  // console.log("backend-translation")
+  const flask_url = process.env.FLASK_URL + '/paraphrase';
+  // const flask_url="http://127.0.0.1:5000/translate";
 
+  try {
+    const formdata = new FormData();
+    const input_type = req.body.input_type;
+    formdata.append("input_type", input_type);
+
+    if (input_type === 'text') {
+      const inp_text = req.body.input_text;
+      console.log(inp_text);
+      formdata.append("input_text", inp_text);
+    } else {
+      const filedata = req.file;
+      console.log(filedata);
+      const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+      formdata.append('input_document', blob, filedata.originalname);
+    }
+
+    const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
+    console.log(pythonFlaskResponse.data,"------->");
+    res.status(200).json(pythonFlaskResponse.data);
+  } catch (err) {
+    console.error("Error Occurred in Flask API:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+}
 
 module.exports = {
   signup,
@@ -398,6 +425,7 @@ module.exports = {
   handwrittenOcr,
   text2speech,
   languagetranslation,
+  paraphraser,
 
  
 };
