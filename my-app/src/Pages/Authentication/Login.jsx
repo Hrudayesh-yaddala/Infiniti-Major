@@ -94,11 +94,14 @@ const Login = () => {
       
         <div class="hidden bg-cover lg:block lg:w-2/3 bg-[url('/Images/bg.webp')]">
            
-            <div class="flex items-center bg-opacity-10 h-full px-20 ml-6">
-                <div>
-                    <h2 class="md:text-5xl underline decoration-double underline-offset-2 hover:underline-offset-4 font-bold text-orange-600 leading-tight sm:text-3xl" >Infiniti Script</h2>
+            <div class="flex items-center bg-opacity-10 h-full px-20 ml-6 ">
+                
+                <div className=" bg-[#ffa781] opacity-80 h-60 w-full py-4 px-7 rounded-xl">
 
-                    <p className="max-w-2xl text-2xl hover:subpixel-antialiased mt-4 text-orange-50 font-bold prose" style={{ textShadow: "1px 1px 2px black" }}>
+                    <div>
+                    <h2 class="md:text-5xl underline  decoration-double  font-bold text-[#5b0e2d] leading-tight sm:text-3xl" >Infiniti Script</h2>
+
+                    <p className="max-w-2xl text-xl  mt-4 text-black font-bold prose">
                     <TypeAnimation
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
@@ -114,7 +117,8 @@ const Login = () => {
                         />
                         {/* "Welcome to a new era of communication! Our innovative NLP-powered application is here to transform the way you interact with text and speech.
                         Discover efficiency, security, and inclusivity in one seamless experience. Join us on this exciting journey today!" */}
-                    </p>
+                    </p> 
+                 </div>
                 </div>
             </div>
         </div>
