@@ -59,7 +59,7 @@ const AplHeader = () => {
   };
 
   return (
-    <header className=" bg-stone-950">
+    <header className=" bg-stone-950 ">
       <nav className="px-4 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* <h1 className="ml-4">DocNLP</h1> */}
@@ -88,7 +88,7 @@ const AplHeader = () => {
 
               {isDropdownOpen1 && (
                 <div
-                  className="z-60 absolute top-full left-0 lg:ml-2.5 md:-ml-4 mt-2 md:w-44 lg:w-42 bg-white rounded-lg duration-700 opacity-100"
+                  className=" z-[9999] absolute top-full left-0 lg:ml-2.5 md:-ml-4 mt-2 md:w-44 lg:w-42 bg-white rounded-lg duration-700 opacity-100"
                   id="user-dropdown"
                   ref={dropdownRef}
                   style={{boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)', opacity:"1", transform:"translate(0) scale(1)", visibility:"visible"}}
@@ -125,7 +125,7 @@ const AplHeader = () => {
 
               {isDropdownOpen2 && (
                 <div
-                  className="z-60 absolute top-full left-0 md:-ml-8 lg:-ml-2.5 mt-2 w-52 bg-white rounded-lg duration-700 opacity-100"
+                  className="z-[9999] absolute top-full left-0 md:-ml-8 lg:-ml-2.5 mt-2 w-52 bg-white rounded-lg duration-700 opacity-100"
                   id="user-dropdown"
                   ref={dropdownRef}
                   style={{boxShadow:"0px 8px 16px 0px rgba(0,0,0,0.2)"}}
@@ -162,7 +162,7 @@ const AplHeader = () => {
 
               {isDropdownOpen3 && (
                 <div
-                  className="z-60 absolute top-full left-0 md:-ml-14 lg:-ml-9 mt-2 w-52 bg-white rounded-lg duration-700 opacity-100"
+                  className="z-[9999] absolute top-full left-0 md:-ml-14 lg:-ml-9 mt-2 w-52 bg-white rounded-lg duration-700 opacity-100"
                   id="user-dropdown"
                   ref={dropdownRef}
                   style={{boxShadow:"0px 8px 16px 0px rgba(0,0,0,0.2)"}}
@@ -187,7 +187,7 @@ const AplHeader = () => {
 
             </button>
 
-            <Link  to={'/home'} className="text-white text-lg hover:bg-[#f48a5d] hover:text-black rounded-md p-2 cursor-pointer font-medium">Mathematical Expression</Link>
+            <Link  to={'/maths-expression'} className="text-white text-lg hover:bg-[#f48a5d] hover:text-black rounded-md p-2 cursor-pointer font-medium">Mathematical Expression</Link>
 
             
             <button
@@ -212,7 +212,7 @@ const AplHeader = () => {
               </div>
               {isDropdownOpen && (
                 <div
-                  className="z-60 absolute mt-56 mr-56 w-32 bg-white rounded-lg duration-700"
+                  className="z-[9999] absolute mt-56 mr-56 w-32 bg-white rounded-lg duration-700"
                   id="user-dropdown"
                   ref={dropdownRef}
                   style={{boxShadow:"0px 8px 16px 0px rgba(0,0,0,0.2)"}}

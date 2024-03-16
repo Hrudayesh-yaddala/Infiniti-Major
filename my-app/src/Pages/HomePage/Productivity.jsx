@@ -25,7 +25,7 @@ const Productivity = () => {
                         </svg>
                         <div class="">
                             <h3 class="ml-3 mb-2 font-bold text-black text-xl">Optical Character Recognition</h3>
-                            <p class="ml-4 text-lg font-normal text-black">Create components, prototypes and webpages for projects needed at work or side projects without worrying too much about the design. Build your UIs from scratch on windframe or edit anyone of our regularly updated 900+ premium template blocks.</p>
+                            <p class="ml-4 text-lg font-normal text-black">It empowers users to convert handwritten text into digital text with precision. By employing sophisticated algorithms, OCR enhances accessibility and efficiency, allowing users to seamlessly transform handwritten content into digital documents, sharing, and integration within the platform.</p>
                         </div>
                     </li>
                     <li class="flex items-start ">
@@ -40,7 +40,7 @@ const Productivity = () => {
                         </svg>
                         <div class="">
                             <h3 class="ml-3 mb-2 font-bold text-xl">Text Craft</h3>
-                            <p class="ml-4 text-lg font-normal text-black">Ship components, webpages for your startup to production in minutes and get in front of your users faster using windframe. You can easily build landing pages,About pages, product pages and so much more with very minimal effort using windframe while also saving countless of hours of design and development</p>
+                            <p class="ml-4 text-lg font-normal text-black">The application provides a comprehensive set of language processing features, encompassing text summarization, paraphrasing, and language translation. Users can generate concise and informative summaries, creatively rephrase content for a fresh perspective</p>
                         </div>
                     </li>
                     <li class="flex items-start">
@@ -55,7 +55,7 @@ const Productivity = () => {
                         </svg>
                         <div class="">
                             <h3 class="ml-3 mb-2 font-bold text-xl">Speech Recognition</h3>
-                            <p class="ml-4 text-lg font-normal text-black">Empower your team to build faster and ship high quality designed projects to your clients. Windframe allows your entire team to jump in and collaborate together on projects, make prototypes easily and decide on designs quickly together. Invite team members as editors to projects and let them build together.</p>
+                            <p class="ml-4 text-lg font-normal text-black">It enables users to effortlessly transcribe audio files into editable text. Leveraging advanced Automatic Speech Recognition (ASR) technology, this functionality enhances user convenience by providing accurate and efficient transcription services.</p>
                         </div>
                     </li>
                     <li class="flex items-start">
@@ -70,7 +70,7 @@ const Productivity = () => {
                         </svg>
                         <div class="">
                             <h3 class="ml-3 mb-2 font-bold text-xl">Supported Exporting Formats</h3>
-                            <p class="ml-4 text-lg font-normal text-black">Design pages on windframe that you can easily export to code without having to write all the code from scratch. Put together elements and components together the way you want them and export to code easily using a very familiar interface like other design tools such as figma and framer.</p>
+                            <p class="ml-4 text-lg font-normal text-black">The application supports exporting documents in various formats, including DOCX, PDF, TXT, and more. This versatility ensures compatibility with different software platforms and meets the diverse needs of users</p>
                         </div>
                     </li>
                 </ul>

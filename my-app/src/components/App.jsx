@@ -26,7 +26,7 @@ import { ResetPassword } from "./ResetPassword";
 import {Route,Routes, useParams} from 'react-router-dom';
 import ProtectedLayout from "./ProtectedLayout";
 
-
+import Mathmat from "../Pages/Mathematical-Exp/mathmat";
 // import  { Toaster } from 'react-hot-toast';
 function App(){
     const {isUser_id,accessToken}=useParams();
@@ -50,6 +50,8 @@ function App(){
                         <Route path="language-translate"  element={<LanguageTranslate/>}/> 
                         <Route path="text-to-speech"  element={<TexttoSpeech/>}/> 
                         <Route path="text-paraphraser"  element={<Paraphraser/>}/> 
+                        <Route path="maths-expression"  element={<Mathmat/>}/> 
+
 
 
 
