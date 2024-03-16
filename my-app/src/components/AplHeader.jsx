@@ -178,7 +178,7 @@ const AplHeader = () => {
                     </li>
                     <li>
                       
-                      <Link to={"/home"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] hover:text-white">Paraphraser</Link>
+                      <Link to={"/text-paraphraser"} className=" text-md text-gray-700 font-semibold p-2 rounded-md hover:bg-[#5b0e2d] hover:text-white">Paraphraser</Link>
                     </li>
                     {/* <br/>                    */}
                   </ul>
