@@ -26,7 +26,8 @@ import { ResetPassword } from "./ResetPassword";
 import {Route,Routes, useParams} from 'react-router-dom';
 import ProtectedLayout from "./ProtectedLayout";
 
-import Mathmat from "../Pages/Mathematical-Exp/mathmat";
+
+import Mathmat from "../Pages/Mathematical-Exp/Mathmat";
 // import  { Toaster } from 'react-hot-toast';
 function App(){
     const {isUser_id,accessToken}=useParams();

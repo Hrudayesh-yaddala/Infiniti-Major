@@ -201,7 +201,7 @@ const Mathmat = () => {
                                   </label> */}
                       {/* </div> */}
                         {/* </div> */}
-                        <div className="h-72 w-96  transition duration-500">
+                        <div className="h-72 w-96  transition duration-500 relative">
                           <textarea className=' w-full h-full border border-black rounded-lg p-2' placeholder='Provide your Mathematical Epression here .....' onChange={InputTexthandlechange} />
                           </div>
 
