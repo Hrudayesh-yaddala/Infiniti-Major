@@ -187,9 +187,9 @@ const Mathmat = () => {
 
                         </div> */}
                       
-                      <div className={` h-56 w-72 rounded-md transition duration-500 ${textfileinput ? "hidden":"block" } `}>
+                      {/* <div className={` h-56 w-72 rounded-md transition duration-500 ${textfileinput ? "hidden":"block" } `}>
                               {/* <div class="flex items-center justify-center w-full"> */}
-                                  <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50 ">
+                                  {/* <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-full border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50 ">
                                       <div class="flex flex-col items-center justify-center pt-5 pb-6 ">
                                           <svg class="w-8 h-8 mb-4 text-black font-bold" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
@@ -198,15 +198,15 @@ const Mathmat = () => {
                                           <p class="text-xs text-black font-semibold">Document</p>
                                       </div>
                                       <input id="dropzone-file" onChange={filehandchange} accept='application/pdf' type="file" class="hidden"/>
-                                  </label>
+                                  </label> */}
                       {/* </div> */}
-                        </div>
-                        <div className={` h-72 w-96  transition duration-500 ${textfileinput ? "block" : "hidden"} `}>
+                        {/* </div> */}
+                        <div className="h-72 w-96  transition duration-500">
                           <textarea className=' w-full h-full border border-black rounded-lg p-2' placeholder='Provide your Mathematical Epression here .....' onChange={InputTexthandlechange} />
                           </div>
 
                           
-                          {inputtext.length >0 && textfileinput ? (
+                          {inputtext.length >0  ? (
                             <div className=' flex justify-center items-center space-x-3 '>
                             {/* <BsTrashFill className=' text-white bg-[#5b0e2d] text-4xl p-2 cursor-pointer mt-1 rounded-md' onClick={fileDelete} /> */}
                             <button className='bg-[#f37c4a] p-2 rounded-lg text-stone-950 font-bold' type='submit' onClick={()=>TranscribeFile()}>Proceed</button>
