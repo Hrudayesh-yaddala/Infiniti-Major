@@ -186,7 +186,7 @@ const Header = () => {
 
             </button>
 
-            <Link  to={'/home'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Mathematical Expression</Link>
+            <Link  to={'/maths-expression'} className="text-black text-lg hover:bg-[#5b0e2d] hover:text-white rounded-md p-2 cursor-pointer font-medium">Mathematical Expression</Link>
 
             
             <button

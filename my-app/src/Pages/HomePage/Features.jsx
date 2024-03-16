@@ -63,7 +63,7 @@ const Features = () => {
                             <p class="mt-6 text-base text-white font-pj">Go back and forth your changes or updates easily using an undo and redo button.</p>
                         </div>
                     </Link>
-                    <div class="relative">
+                    <Link to={'/maths-expression'} class="relative">
                         <div class="absolute -inset-1">
                             <div class="w-full h-full rotate-180 opacity-50 blur-md filter   bg-gradient-to-r from-purple-600 to-black">
                             </div>
@@ -75,7 +75,7 @@ const Features = () => {
                                 <p class="mt-6 text-base text-black font-pj">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                     <div class="relative">
                         <div class="absolute -inset-1">
                             <div class="w-full h-full rotate-180 opacity-50 blur-md filter   bg-gradient-to-r from-purple-600 to-black">

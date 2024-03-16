@@ -13,7 +13,7 @@ import { APICall } from '../../API/APICall';
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 
-const paraphraser = () => {
+const Mathmat = () => {
 
  
   const[resdata,setResdata]=useState('');
@@ -90,36 +90,32 @@ const paraphraser = () => {
           setDisplayResult(true);
         
           // console.log("in upload fun***********",srcfile);
-          if (!srcfile && inputtext.length==0) {
-            toast.error("Please Provide all the details to continue");
+          if (inputtext.length==0) {
+            toast.error("Please Provide the Equation to continue");
             setDisplayResult(false);
             return;
           }
 
           const formData = new FormData();
           if(inputtext.length>0){
-            formData.append("input_type","text");
             formData.append("input_text",inputtext);
           }
-          else{
-            formData.append("input_type","document");
-            formData.append("input_document",srcfile);
-          }
+          
          
           console.log(formData.getAll('input_text'));
           const response = await axios.post(
-            APICall+'/paraphrase',
+            APICall+'/expression-solving',
             formData,
             {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
+              // headers: {
+              //   'Content-Type': 'multipart/form-data',
+              // },
             
             }
           );
       
           console.log(response.data);
-          setResdata(response.data.paraphrased_text);
+          setResdata(response.data.gem_response);
           
         } catch (error) {
           setDisplayResult(false);
@@ -153,7 +149,7 @@ const paraphraser = () => {
         <div className='  gap-x-28 flex items-center justify-center h-screen w-screen container'>
 
         {/* <h1>Feature is under progress...</h1> */}
-            <div className='w-96  h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
+            <div className='w-1/3  h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
                 
                 {filestat?(
                    <div className=' border-black h-40 w-52 rounded-md space-y-12 '>
@@ -185,11 +181,11 @@ const paraphraser = () => {
                         
 
                     </div>   */}
-                     <div className=' w-52 bg-gray-400 rounded-full gap-x-7 flex items-center justify-center p-2'>
+                     {/* <div className=' w-52 bg-gray-400 rounded-full gap-x-7 flex items-center justify-center p-2'>
                         <button className={ `h-8 w-full font-bold  rounded-full ${textfileinput? "": "bg-[#f97f4a] "} transition duration-500`} onClick={()=> setTextfileinput(false)}>File </button>
                         <button className={`${textfileinput? "bg-[#f37c4a]" :" "}  w-full font-bold h-8 rounded-full transition duration-500`} onClick={()=> setTextfileinput(true)}>Text</button>
 
-                        </div>
+                        </div> */}
                       
                       <div className={` h-56 w-72 rounded-md transition duration-500 ${textfileinput ? "hidden":"block" } `}>
                               {/* <div class="flex items-center justify-center w-full"> */}
@@ -205,8 +201,8 @@ const paraphraser = () => {
                                   </label>
                       {/* </div> */}
                         </div>
-                        <div className={` h-56 w-80  transition duration-500 ${textfileinput ? "block" : "hidden"} `}>
-                          <textarea className=' w-full h-full border border-black rounded-lg p-2' placeholder='Provide your text here .....' onChange={InputTexthandlechange} />
+                        <div className={` h-72 w-96  transition duration-500 ${textfileinput ? "block" : "hidden"} `}>
+                          <textarea className=' w-full h-full border border-black rounded-lg p-2' placeholder='Provide your Mathematical Epression here .....' onChange={InputTexthandlechange} />
                           </div>
 
                           
@@ -254,8 +250,24 @@ const paraphraser = () => {
   )
 }
 
-export default paraphraser;
+export default Mathmat;
 
+
+
+// import React, { useState } from 'react';
+// import MarkdownEditor from '@uiw/react-markdown-editor';
+
+// const mdStr = `# This is a H1  \n## This is a H2  \n###### This is a H6`;
+// export default function Mathmat() {
+//   const [markdown, setMarkdown] = useState(mdStr);
+//   return (
+//     <MarkdownEditor
+//       value={markdown}
+//       height="200px"
+//       onChange={(value, viewUpdate) => setMarkdown(value)}
+//     />
+//   );
+// }
 
 
 

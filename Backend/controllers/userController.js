@@ -415,6 +415,28 @@ const paraphraser = async (req, res) => {
   }
 }
 
+
+const MathematicalSolving = async (req, res) => {
+  const flask_url = process.env.FLASK_URL + '/math_exp_solve';
+  // const flask_url="http://127.0.0.1:5000/translate";
+
+  try {
+    const formdata = new FormData();
+  
+    // const formdata=req.body;
+    const inp_text = req.body.input_text;
+    // console.log(req.body.input_text,"***********");
+    formdata.append("prompt", inp_text);
+
+    const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
+    console.log(pythonFlaskResponse.data,"------->");
+    res.status(200).json(pythonFlaskResponse.data);
+  } catch (err) {
+    console.error("Error Occurred:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+}
+
 module.exports = {
   signup,
   signin,
@@ -426,6 +448,7 @@ module.exports = {
   text2speech,
   languagetranslation,
   paraphraser,
+  MathematicalSolving,
 
  
 };
