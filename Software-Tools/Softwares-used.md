@@ -11,7 +11,7 @@ Backend
 
 * Node JS: (https://nodejs.org/en/download/current)
 * Express JS: 9https://expressjs.com/en/starter/installing.html)
-* Python: (https://www.python.org/downloads/)
+*  Python: (https://www.python.org/downloads/)
 
 API
 
