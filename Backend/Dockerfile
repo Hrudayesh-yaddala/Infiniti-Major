@@ -1,4 +1,4 @@
-FROM node:21-alpine AS BUILD
+FROM node:21-alpine
 
 WORKDIR /usr/src/Backend
 
@@ -8,12 +8,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+EXPOSE 8000
 
-FROM nginx:stable-alpine
-
-COPY --from=BUILD /usr/src/Backendend/dist /usr/share/nginx/html
-
-EXPOSE 90
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "dev"]
