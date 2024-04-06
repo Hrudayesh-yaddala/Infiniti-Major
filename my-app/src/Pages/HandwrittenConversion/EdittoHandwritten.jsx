@@ -123,15 +123,18 @@ const EdittoHandwritten = () => {
             APICall+'/edit-handwritten',
             formData,
             {
-              // headers: {
-              //   'Content-Type': 'multipart/form-data',
-              // },
-            
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+              responseType: 'blob',
             }
           );
-      
+          const blob = new Blob([response.data], { type: 'image/png' });
+
+      // Create a URL for the blob object
+          const imageUrl = URL.createObjectURL(blob);
           console.log(response.data);
-          setResdata(response.data);
+          setResdata(imageUrl);
           
         } catch (error) {
           setDisplayResult(false);
