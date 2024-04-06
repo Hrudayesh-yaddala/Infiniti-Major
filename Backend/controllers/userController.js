@@ -9,6 +9,8 @@ const path = require('path');
 const fs = require('fs');
 
 
+
+
 const _email = process.env.EMAIL
 const _password = process.env.EMAIL_PASSWORD
 const signup = async (req, res) => {
@@ -441,26 +443,6 @@ const MathematicalSolving = async (req, res) => {
   }
 }
 
-// const EdittoHandwritten = async (req, res) => {
-//   const flask_url = process.env.FLASK_URL + '/generate_handwritten_image';
-//   // const flask_url="http://127.0.0.1:5000/translate";
-
-//   try {
-//     const formdata = new FormData();
-  
-//     // const formdata=req.body;
-//     const inp_text = req.body.input_text;
-//     console.log(inp_text,"***********");
-//     formdata.append("text", inp_text);
-
-//     const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
-//     console.log(pythonFlaskResponse.data,"------->");
-//     res.status(200).json(pythonFlaskResponse.data);
-//   } catch (err) {
-//     console.error("Error Occurred:", err);
-//     return res.status(500).json({ message: err.message, results: err });
-//   }
-// }
 
 const EdittoHandwritten = async (req, res) => {
   const flask_url = process.env.FLASK_URL + '/generate_handwritten_image';
@@ -473,8 +455,7 @@ const EdittoHandwritten = async (req, res) => {
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {
       responseType: 'arraybuffer' 
     });
-
-    // Set the response content type as image/jpeg or the appropriate image format
+   
     res.set('Content-Type', 'image/png');
     // Send the image data to the frontend
     res.status(200).send(pythonFlaskResponse.data);
@@ -483,6 +464,42 @@ const EdittoHandwritten = async (req, res) => {
     return res.status(500).json({ message: err.message, results: err });
   }
 }
+
+
+const FileExporting = async (req, res) => {
+  console.log("file-exporting");
+  const flask_url = 'http://127.0.0.1:5000/file-conversion';
+
+  try {
+    const formdata = new FormData();
+    const inputType = req.body.input_language;
+    formdata.append("input_type", inputType);
+    
+    // Check file type and append accordingly
+    const filedata = req.file;
+    let blobData;
+    if (filedata.mimetype === 'application/pdf' || filedata.originalname.endsWith('.pdf')) {
+      blobData = new Blob([filedata.buffer], { type: 'application/pdf' });
+    } else if (filedata.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || filedata.originalname.endsWith('.docx')) {
+      blobData = new Blob([filedata.buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+    } else if (filedata.mimetype === 'text/plain' || filedata.originalname.endsWith('.txt')) {
+      blobData = new Blob([filedata.buffer], { type: 'text/plain' });
+    } else {
+      return res.status(400).json({ message: 'Unsupported file type' });
+    }
+
+    formdata.append('input_document', blobData, filedata.originalname);
+
+    const pythonFlaskResponse = await axios.post(flask_url, formdata, { responseType: 'arraybuffer' });
+    console.log(pythonFlaskResponse.data, "------->");
+    res.status(200).json(pythonFlaskResponse.data);
+  } catch (err) {
+    console.error("Error Occurred:", err);
+    return res.status(500).json({ message: err.message, results: err });
+  }
+};
+
+
 
 
 module.exports = {
@@ -498,6 +515,7 @@ module.exports = {
   paraphraser,
   MathematicalSolving,
   EdittoHandwritten,
+  FileExporting,
 
  
 };

@@ -27,9 +27,9 @@ const Register = () => {
   const load = () => {
     return (
       <div className={`flex justify-center items-center h-screen ${loading ? 'block' : 'hidden'}`}>
-        <div className="bg-white p-5 rounded-lg">
-          <BeatLoader loading={loading} className="text-cyan-900 text-3xl" />
-          <p className="mt-4 text-gray-600">Loading...</p>
+        <div className="bg-black p-5 rounded-lg">
+          <BeatLoader loading={loading} className=" text-slate-200 text-3xl" />
+          <p className="mt-4 text-gray-200">Loading...</p>
         </div>
       </div>
     )
@@ -264,15 +264,22 @@ const Register = () => {
                         <input type="password" placeholder="Enter your password" onChange={(e)=>setConfirmPassword(e.target.value)}  class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg     focus:border-[#5b0e2d]   focus:ring-[#5b0e2d]  focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
-                    <button
-                        class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#5b0e2d]  rounded-lg hover:bg-orange-900 focus:outline-none focus:ring focus:ring-[#5b0e2d]-300 focus:ring-opacity-50">
-                        <span>Sign Up </span>
+                    <button class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#5b0e2d]  rounded-lg hover:bg-orange-900 focus:outline-none focus:ring focus:ring-[#5b0e2d]-300 focus:ring-opacity-50">
+                        
+                        { loading ? load(): (
+                          <div>
+                             <span>Sign Up </span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd" />
-                        </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd"
+                                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                      clip-rule="evenodd" />
+                              </svg>
+                          </div>
+
+                       
+                        )}
+                       
                     </button>
                     
                 </form>
