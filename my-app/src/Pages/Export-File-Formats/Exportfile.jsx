@@ -73,21 +73,18 @@ const Exportfile = () => {
     try {
       setLoading(true);
       setDisplayResult(true);
-
-      // console.log("in upload fun***********",srcfile);
-      if (!lang || !srcfile  ) {
+  
+      if (!lang || !srcfile) {
         toast.error(" 🦞 Please Provide all the details to continue ");
         setDisplayResult(false);
         return;
       }
-
+  
       const formData = new FormData();
       formData.append("input_language", lang);
       formData.append("input_document", srcfile);
-
-
-      console.log("testing phase---->", formData.getAll("input_language"));
-
+      
+  
       const response = await axios.post(
         APICall + "/file-exporting",
         formData,
@@ -98,20 +95,43 @@ const Exportfile = () => {
           responseType: 'blob',
         }
       );
-      const blob = new Blob([response.data]);
-
-      const imageUrl = URL.createObjectURL(blob);
-      console.log(response.data);
-      setResdata(imageUrl);
+  
+      // Set the response data (file content) in the component state
+      setResdata(response.data);
+      
+      // Determine the file type
+      let fileType;
+      let downname;
+      if (lang === 'doctopdf' || lang == 'txttopdf') {
+        fileType = 'pdf';
+        downname = srcfile.name.replace(".docx", "").replace(".txt", "")
+      } else if (lang == 'pdftodoc') {
+        fileType = 'docx';
+        downname = srcfile["name"].replace(".pdf", "")
+      } else {
+        // Handle unsupported file types
+        toast.error('Unsupported file type');
+        return;
+      }
+      
+      // Trigger file download based on file type
+      const blob = new Blob([response.data], { type: response.headers['content-type'] });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${downname}.${fileType}`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } catch (error) {
       setDisplayResult(false);
-
       toast.error("Unable to process the file :", error);
       console.error("Error processing file:", error);
     } finally {
       setLoading(false);
     }
   };
+  
   return (
     <div className="relative overflow-y-hidden overflow-x-hidden">
       <div className="bg-home bg-no-repeat h-screen bg-center bg-cover ">

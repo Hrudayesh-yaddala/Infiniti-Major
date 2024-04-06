@@ -20,6 +20,7 @@ import LanguageTranslate from "../Pages/LanguageTranslation/LanguageTranslate";
 import TexttoSpeech from "..//Pages/Text-speech/TexttoSpeech";
 import Paraphraser from "../Pages/Paraphraser/paraphraser";
 import EdittoHandwritten from "../Pages/HandwrittenConversion/EdittoHandwritten";
+import Exportfile from "../Pages/Export-File-Formats/Exportfile";
 import { NotFound } from "./NotFound";
 import { ForgetPassword } from "./ForgetPassword";
 import { ResetPassword } from "./ResetPassword";
@@ -54,6 +55,7 @@ function App(){
                         <Route path="text-paraphraser"  element={<Paraphraser/>}/> 
                         <Route path="maths-expression"  element={<Mathmat/>}/> 
                         <Route path="edit-to-handwritten"  element={<EdittoHandwritten/>}/> 
+                        <Route path="export-file"  element={<Exportfile/>}/> 
 
 
 
