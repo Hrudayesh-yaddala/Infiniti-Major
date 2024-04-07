@@ -46,16 +46,38 @@ const Audiotranscribe = () => {
     toast.success("Text Copied")
     copy(resdata);
   }
+ 
   const downloadcopy = () => {
     if (!resdata) {
-      toast.error('Failed to download file');
-      return
+      toast.error("Failed to download file");
+      return;
     }
+    
     const doc = new jsPDF();
-    doc.text(resdata, 10, 10);
+    
+    doc.setFontSize(12); 
+    doc.setFont("helvetica");
+    
+    const margin = 10;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    
+    const lines = doc.splitTextToSize(resdata, pageWidth - margin * 2);
+    
+    const lineHeight = doc.getLineHeight();
+    const textHeight = lines.length * lineHeight;
+    
+    if (textHeight > pageHeight - margin * 2) {
+      // Add new page if content overflows
+      doc.addPage();
+    }
+    
+    // Add text to the PDF
+    doc.text(lines, margin, margin);
+    
+    // Save the PDF
     doc.save("Speech_to_text_Results.pdf");
-
-  }
+  };
   const filehandchange = () => {
     console.log("file testing_____");
     const fileInput = document.getElementById('dropzone-file');
@@ -132,7 +154,7 @@ const Audiotranscribe = () => {
             <div className='  gap-x-28 flex items-center justify-center h-screen w-screen container'>
 
 
-              <div className=' w-96 h-96  flex flex-col items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
+              <div className=' w-1/3 h-96  flex flex-col items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
 
                 {filestat ? (
                    <div className=' h-40 w-52 rounded-md space-y-12 '>

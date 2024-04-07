@@ -7,6 +7,11 @@ const { text } = require("stream/consumers");
 require("dotenv").config();
 const path = require('path');
 const fs = require('fs');
+const ILovePDFApi = require('@ilovepdf/ilovepdf-nodejs');
+const ILovePDFFile = require('@ilovepdf/ilovepdf-nodejs/ILovePDFFile')
+const { jsPDF } = require("jspdf");
+
+// Your code here
 
 
 
@@ -43,8 +48,8 @@ const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     req.body.password = hashedPassword;
     // const newUser = await User.create(req.body);
-    const uniqueObjid = await bcrypt.hash(req.body.email,12);
-    const newUser = await User.create({firstname: firstname,lastname:lastname, email: email, password:hashedPassword, phone: phone,uniqueObjid: uniqueObjid});
+    const uniqueObjid = await bcrypt.hash(req.body.email, 12);
+    const newUser = await User.create({ firstname: firstname, lastname: lastname, email: email, password: hashedPassword, phone: phone, uniqueObjid: uniqueObjid });
 
 
     return res.status(200).json({ message: "user registered", user: newUser });
@@ -118,7 +123,7 @@ const forgetpassword = async (req, res) => {
         subject: 'Reset Your Password',
         text: `http://localhost:5173/resetpassword/${isUser._id}/${accessToken}`
       };
-     
+
 
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
@@ -249,15 +254,17 @@ const speechrecognition = async (req, res) => {
     const flask_url = process.env.FLASK_URL + "/audio-transcribe";
 
     // const flask_url=" http://127.0.0.1:5000/audio-transcribe"
-   
+
     const filedata = req.file;
     const formData = new FormData();
     const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
     formData.append('audioFile', blob, filedata.originalname);
     // console.log(formData,"---------->");
-    const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {
-      'Content-Type': 'multipart/form-data',
-    }},);
+    const pythonFlaskResponse = await axios.post(flask_url, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      }
+    },);
     console.log(pythonFlaskResponse.data);
     return res.status(200).json(pythonFlaskResponse.data)
 
@@ -268,7 +275,7 @@ const speechrecognition = async (req, res) => {
 };
 
 
-const handwrittenOcr= async (req, res) => {
+const handwrittenOcr = async (req, res) => {
   try {
     const flask_url = process.env.FLASK_URL + "/ocr";
     // const flask_url=" http://127.0.0.1:5000/ocr"
@@ -280,7 +287,7 @@ const handwrittenOcr= async (req, res) => {
     const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
     formData.append(key, blob, filedata.originalname);
     // console.log(formData,"---------->");
-    const pythonFlaskResponse = await axios.post(flask_url, formData,{headers: {}},);
+    const pythonFlaskResponse = await axios.post(flask_url, formData, { headers: {} },);
     console.log(pythonFlaskResponse.data);
     return res.status(200).json(pythonFlaskResponse.data)
 
@@ -330,10 +337,10 @@ const text2speech = async (req, res) => {
   try {
     const formdata = new FormData();
     const input_type = req.body.input_type;
-    // const input_language=req.body.input_language;
+    const input_language = req.body.input_language;
 
     formdata.append("input_type", input_type);
-    // formdata.append("input_language",input_language);
+    formdata.append("input_language", input_language);
 
 
     if (input_type === 'text') {
@@ -346,7 +353,7 @@ const text2speech = async (req, res) => {
     }
 
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {
-      responseType: 'arraybuffer' 
+      responseType: 'arraybuffer'
     });
 
     res.set('Content-Type', 'audio/mpeg');
@@ -368,9 +375,9 @@ const languagetranslation = async (req, res) => {
   try {
     const formdata = new FormData();
     const input_type = req.body.input_type;
-    const input_language=req.body.input_language;
+    const input_language = req.body.input_language;
     formdata.append("input_type", input_type);
-    formdata.append("input_language",input_language);
+    formdata.append("input_language", input_language);
 
     if (input_type === 'text') {
       const inp_text = req.body.input_text;
@@ -382,7 +389,7 @@ const languagetranslation = async (req, res) => {
     }
 
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
-    console.log(pythonFlaskResponse.data,"------->");
+    console.log(pythonFlaskResponse.data, "------->");
     res.status(200).json(pythonFlaskResponse.data);
   } catch (err) {
     console.error("Error Occurred:", err);
@@ -413,7 +420,7 @@ const paraphraser = async (req, res) => {
     }
 
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
-    console.log(pythonFlaskResponse.data,"------->");
+    console.log(pythonFlaskResponse.data, "------->");
     res.status(200).json(pythonFlaskResponse.data);
   } catch (err) {
     console.error("Error Occurred :", err);
@@ -428,14 +435,14 @@ const MathematicalSolving = async (req, res) => {
 
   try {
     const formdata = new FormData();
-  
+
     // const formdata=req.body;
     const inp_text = req.body.input_text;
     // console.log(req.body.input_text,"***********");
     formdata.append("prompt", inp_text);
 
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {});
-    console.log(pythonFlaskResponse.data,"------->");
+    console.log(pythonFlaskResponse.data, "------->");
     res.status(200).json(pythonFlaskResponse.data);
   } catch (err) {
     console.error("Error Occurred:", err);
@@ -446,16 +453,16 @@ const MathematicalSolving = async (req, res) => {
 
 const EdittoHandwritten = async (req, res) => {
   const flask_url = process.env.FLASK_URL + '/generate_handwritten_image';
-  
+
   try {
     const formdata = new FormData();
     const inp_text = req.body.input_text;
     formdata.append("text", inp_text);
 
     const pythonFlaskResponse = await axios.post(flask_url, formdata, {
-      responseType: 'arraybuffer' 
+      responseType: 'arraybuffer'
     });
-   
+
     res.set('Content-Type', 'image/png');
     // Send the image data to the frontend
     res.status(200).send(pythonFlaskResponse.data);
@@ -466,41 +473,201 @@ const EdittoHandwritten = async (req, res) => {
 }
 
 
+// const FileExporting = async (req, res) => {
+//   console.log("file-exporting");
+//   const flask_url = 'http://127.0.0.1:5000/file-conversion';
+
+//   try {
+//     const formdata = new FormData();
+//     const inputType = req.body.input_language;
+//     formdata.append("input_type", inputType);
+
+//     // Check file type and append accordingly
+//     const filedata = req.file;
+//     let blobData;
+//     if (filedata.mimetype === 'application/pdf' || filedata.originalname.endsWith('.pdf')) {
+//       blobData = new Blob([filedata.buffer], { type: 'application/pdf' });
+//     } else if (filedata.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || filedata.originalname.endsWith('.docx')) {
+//       blobData = new Blob([filedata.buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+//     } else if (filedata.mimetype === 'text/plain' || filedata.originalname.endsWith('.txt')) {
+//       blobData = new Blob([filedata.buffer], { type: 'text/plain' });
+//     } else {
+//       return res.status(400).json({ message: 'Unsupported file type' });
+//     }
+
+//     formdata.append('input_document', blobData, filedata.originalname);
+
+//     const pythonFlaskResponse = await axios.post(flask_url, formdata, { responseType: 'arraybuffer' });
+//     console.log(pythonFlaskResponse.data, "------->");
+//     res.status(200).json(pythonFlaskResponse.data);
+//   } catch (err) {
+//     console.error("Error Occurred:", err);
+//     return res.status(500).json({ message: err.message, results: err });
+//   }
+// };
+
+
+// const FileExporting = async (req, res) => {
+//   console.log("file-exporting");
+//   try {
+//     const formdata = new FormData();
+//     const inputType = req.body.input_language;
+//     // formdata.append("input_type", inputType);
+
+//     // Check file type and append accordingly
+//     const filedata = req.file;
+//     // console.log(filedata);
+//     const blob = new Blob([filedata.buffer], { type: filedata.mimetype });
+//     formdata.append('input_document', blob, filedata.originalname);
+//     const instance = new ILovePDFApi('project_public_e2999790d1224c5791c1b0ae93b07cde_KrfDS979474dc47a8f4ed73d6a2186b1b38cc',
+//      'secret_key_6895041fe1a3a54222e6f0b857db7d69_zLAuWabe4a7a803b6ab26ddf25c8044bd58c0');
+//      console.log(formdata.getAll('input_document'));
+//      const task = instance.newTask('officepdf');
+
+
+//      task.start()
+//        .then(() => {
+//          return task.addFile(formdata); // Provide the path or URL to your PDF file
+//        })
+//        .then(() => {
+//          return task.process();
+//        })
+//        .then(() => {
+//          // task.download() is not necessary for Node.js environments
+//          // as the converted file is returned as a buffer
+//          console.log(task.getFile());
+//          return task.getFile();
+//        })
+//        .then((data) => {
+//          const fs = require('fs');
+//          console.log("success*****",data)
+//          const outputFilePath = 'outputres.docx'; // Specify your desired output file path
+//          fs.writeFileSync(outputFilePath, data);
+//          console.log('PDF converted to DOCX successfully!');
+//        })
+//        .catch((error) => {
+//          console.error('Error:', error);
+//        });
+
+
+
+//   } catch (err) {
+//     console.error("Error Occurred:", err);
+//     return res.status(500).json({ message: err.message, results: err });
+//   }
+// };
+
+
+
 const FileExporting = async (req, res) => {
   console.log("file-exporting");
-  const flask_url = 'http://127.0.0.1:5000/file-conversion';
+  const flask_url = process.env.FLASK_URL + '/file-conversion';
+
 
   try {
     const formdata = new FormData();
     const inputType = req.body.input_language;
     formdata.append("input_type", inputType);
-    
+
     // Check file type and append accordingly
     const filedata = req.file;
     let blobData;
     if (filedata.mimetype === 'application/pdf' || filedata.originalname.endsWith('.pdf')) {
+      console.log("entered pdf to docx")
       blobData = new Blob([filedata.buffer], { type: 'application/pdf' });
+
+      formdata.append('input_document', blobData, filedata.originalname);
+
+      const pythonFlaskResponse = await axios.post(flask_url, formdata, { responseType: 'arraybuffer' });
+      res.set({
+        'Content-Type': 'application/octet-stream',
+        'Content-Disposition': ` attachment; filename="${filedata.originalname}"`
+      });
+      console.log(pythonFlaskResponse.data);
+      res.status(200).send(pythonFlaskResponse.data);
     } else if (filedata.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || filedata.originalname.endsWith('.docx')) {
-      blobData = new Blob([filedata.buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+
+      console.log("entered docx to pdf")
+      const tempFolder = '/tmp'; // Path to temporary folder
+      const savedFilePath = path.join(tempFolder, filedata.originalname);
+
+      // Check if the temporary folder exists, if not, create it
+      if (!fs.existsSync(tempFolder)) {
+        fs.mkdirSync(tempFolder, { recursive: true });
+      }
+
+      // Write the uploaded file to the temporary folder
+      fs.writeFileSync(savedFilePath, filedata.buffer);
+
+      // Perform PDF to DOCX conversion
+      const instance = new ILovePDFApi('project_public_e2999790d1224c5791c1b0ae93b07cde_KrfDS979474dc47a8f4ed73d6a2186b1b38cc',
+        'secret_key_6895041fe1a3a54222e6f0b857db7d69_zLAuWabe4a7a803b6ab26ddf25c8044bd58c0');
+      const task = instance.newTask('officepdf');
+      task.start()
+        .then(() => {
+          console.log("task1");
+          const file = new ILovePDFFile(savedFilePath);
+          return task.addFile(file);
+        })
+        .then(() => {
+          console.log("task2");
+          return task.process();
+        })
+        .then(() => {
+          console.log("task3");
+          return task.download()
+          //  return task.getFile();
+        })
+        .then((data) => {
+          //  console.log("success***", data);
+          fs.unlinkSync(savedFilePath);
+          res.set({
+            'Content-Type': 'application/octet-stream',
+            'Content-Disposition': `attachment; filename="${filedata.originalname}"`
+          });
+          res.status(200).send(data);
+
+        })
+        .catch((error) => {
+          console.error('Failed Error:', error);
+        });
+
+      // blobData = new Blob([filedata.buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
     } else if (filedata.mimetype === 'text/plain' || filedata.originalname.endsWith('.txt')) {
-      blobData = new Blob([filedata.buffer], { type: 'text/plain' });
-    } else {
+
+      // blobData = new Blob([filedata.buffer], { type: 'text/plain' });
+      console.log("entered text to pdf");
+
+      const textContent = filedata.buffer.toString();
+
+      const doc = new jsPDF();
+
+      doc.setFontSize(12);
+      doc.setFont("helvetica");
+      const lines = doc.splitTextToSize(textContent, doc.internal.pageSize.getWidth() - 20);
+
+      doc.text(lines, 10, 10);
+
+      const pdfBuffer = doc.output();
+      console.log(pdfBuffer,"sucesss");
+      res.set({
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename="converted_file.pdf"`
+      });
+
+      res.status(200).send(pdfBuffer);
+    }
+
+    else {
       return res.status(400).json({ message: 'Unsupported file type' });
     }
 
-    formdata.append('input_document', blobData, filedata.originalname);
 
-    const pythonFlaskResponse = await axios.post(flask_url, formdata, { responseType: 'arraybuffer' });
-    console.log(pythonFlaskResponse.data, "------->");
-    res.status(200).json(pythonFlaskResponse.data);
   } catch (err) {
     console.error("Error Occurred:", err);
     return res.status(500).json({ message: err.message, results: err });
   }
 };
-
-
-
 
 module.exports = {
   signup,
@@ -517,5 +684,5 @@ module.exports = {
   EdittoHandwritten,
   FileExporting,
 
- 
+
 };

@@ -10,6 +10,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import BeatLoader from "react-spinners/BeatLoader";
 // import { BASE_URL } from "../config";
 import { APICall } from "../API/APICall";
+import ScaleLoader from "react-spinners/ScaleLoader";
+
 
 
 
@@ -166,8 +168,18 @@ const Summarize = () => {
   };
 
   return (
-    <div>{loading ? load() : (
-      <div className="font-sans items-center text-left bg-[#ffa781] h-screen">
+    <div className="relative overflow-y-hidden overflow-x-hidden">
+    <div className="bg-home bg-no-repeat h-screen bg-center bg-cover ">
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 object-cover w-full h-full xl:h-auto"
+        src="/Videos/dustparticles.mp4"
+      />
+      
+        <div className="absolute inset-0">
+        <div className="font-sans items-center text-left h-screen">
         <div className="container mx-auto md:w-1/2 lg:w-full xl:w-full pt-10 pl-8 pr-8 ">
           <div className="text-center rounded-t-xl py-4 w-full bg-[#5b0e2d] text-white font-bold"><h2 className="text-xl">Text Summarization</h2></div>
           <div className=" bg-white p-10 rounded-b-lg shadow-2xl shadow-[#5b0e2d]">
@@ -265,9 +277,12 @@ const Summarize = () => {
             </div>
             <br />
             <div className="flex justify-center">
-              <button className="bg-rose-500 hover:bg-rose-700 text-white px-4 py-2 rounded" type="submit" onClick={handleSubmit}>
+              {loading ? <ScaleLoader loading={loading} className="flex self-center bg-white rounded-md text-3xl ml p-4" />: (
+                <button className="bg-rose-500 hover:bg-rose-700 text-white px-4 py-2 rounded" type="submit" onClick={handleSubmit}>
                 Summarize
               </button>
+              )}
+              
             </div>
             <br />
 
@@ -306,9 +321,12 @@ const Summarize = () => {
         </div>
       </div>
     </div>
-  </div>)}
+  
     
-    </div>
+    </div> 
+        </div>
+      </div>
+</div>  
   );
 };
 

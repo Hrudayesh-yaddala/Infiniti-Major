@@ -23,6 +23,7 @@ const TexttoSpeech = () => {
   const [filestat, setFilestat] = useState(false);
   const [displayresult, setDisplayResult] = useState(false);
   const [textfileinput, setTextfileinput] = useState(false);
+  const [lang, setLanguage] = useState("");
 
 
 
@@ -93,13 +94,15 @@ const TexttoSpeech = () => {
       setDisplayResult(true);
 
       // console.log("in upload fun***********",srcfile);
-      if (!srcfile && inputtext.length == 0) {
-        toast.error("upload file or provide text to transcribe audio!!");
+      if (!lang || (!srcfile && inputtext.length == 0)) {
+        toast.error(" Please Provide all the details to continue 🦞");
         setDisplayResult(false);
         return;
       }
 
       const formData = new FormData();
+      formData.append("input_language", lang);
+
       // formData.append('ImageFile', srcfile);
       if (inputtext.length > 0) {
         formData.append("input_type", "text");
@@ -153,7 +156,7 @@ const TexttoSpeech = () => {
           <div className="absolute inset-0">
             <div className=' flex items-center flex-col gap-y-10 justify-center h-screen w-screen container'>
 
-              <div className=' w-96 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
+              <div className=' w-1/3 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95'>
 
                 {filestat ? (
                   <div className=' border-black  h-40 w-52 rounded-md space-y-12 '>
@@ -176,10 +179,60 @@ const TexttoSpeech = () => {
                 ) : (
 
                   <div className=' flex justify-center items-center flex-col gap-y-3'>
-                    <div className=' w-52 bg-gray-400 rounded-full gap-x-7 flex items-center justify-center p-2'>
+                    {/* <div className=' w-52 bg-gray-400 rounded-full gap-x-7 flex items-center justify-center p-2'>
                       <button className={`h-8 w-full font-semibold  rounded-full ${textfileinput ? "" : "bg-[#f9733a] "} transition duration-500`} onClick={() => setTextfileinput(false)}>File </button>
                       <button className={`${textfileinput ? "bg-[#f7733b]" : " "}  w-full font-semibold h-8 rounded-full transition duration-500`} onClick={() => setTextfileinput(true)}>Text</button>
 
+                    </div> */}
+
+<div className=" flex justify-center items-center gap-x-4 ">
+                      <div className=" w-40 bg-gray-300 rounded-full gap-x-3 flex items-center justify-center p-2">
+                        <button
+                          className={`h-7 w-full font-semibold  rounded-full ${
+                            textfileinput ? "" : "bg-[#ffa781] "
+                          } transition duration-500`}
+                          onClick={() => setTextfileinput(false)}
+                        >
+                          File{" "}
+                        </button>
+                        <button
+                          className={`${
+                            textfileinput ? "bg-[#ffa781]" : " "
+                          }  w-full font-semibold h-8 rounded-full transition duration-500`}
+                          onClick={() => setTextfileinput(true)}
+                        >
+                          Text
+                        </button>
+                      </div>
+
+                      <form class="max-w-sm mx-auto">
+                        {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
+                        <select
+                          id="languages"
+                          value={lang}
+                          onChange={(e) => setLanguage(e.target.value)}
+                          class="bg-gray-200 border border-black font-semibold text-sm rounded-lg focus:ring-black focus:border-black block w-full p-2.5 "
+                        >
+                          <option selected>Choose a language</option>
+                          <option value="bn">Bengali</option>
+                          <option value="bh">Bihari</option>
+                          <option value="zh-TW">Chinese</option>
+                          <option value="en">English</option>
+                          <option value="fr">French</option>
+                          <option value="de">German</option>
+                          <option value="gu">Gujarati</option>
+                          <option value="hi">Hindi</option>
+
+                          <option value="id">Indonesian</option>
+                          <option value="ja">Japanese</option>
+                          <option value="kn">Kannada</option>
+                          <option value="ml">Malayalam</option>
+                          <option value="mr">Marathi</option>
+                          <option value="pa">Punjabi</option>
+                          <option value="ta">Tamil</option>
+                          <option value="te">Telugu</option>
+                        </select>
+                      </form>
                     </div>
                     <div className={`  h-56 w-72 rounded-md transition duration-500 ${textfileinput ? "hidden" : "block"} `}>
                       {/* <div class="flex items-center justify-center w-full"> */}
@@ -219,12 +272,20 @@ const TexttoSpeech = () => {
               <button onClick={() => downloadAudio()}>Download Audio</button> */}
 
               {/* Render an audio player for playing the audio */}
-              {resdata && (
+              {/* {resdata && (
                 <audio controls>
                   <source src={resdata} type="audio/mpeg" />
                   Your browser does not support the audio element.
                 </audio>
-              )}
+              )} */}
+                 
+              { loading ? ( <ScaleLoader loading={loading} className="flex self-center bg-white rounded-md text-3xl ml p-4" />): (
+               
+                resdata ? (<audio controls>
+                <source src={resdata} type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>):" "
+               )}
 
 
 
