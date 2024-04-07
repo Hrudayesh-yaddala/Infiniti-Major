@@ -146,7 +146,7 @@ const Exportfile = () => {
         <div className="absolute inset-0">
           <div>
             <div className="  gap-x-28 flex items-center justify-center h-screen w-screen container">
-              <div className=" w-96 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95">
+              <div className=" w-1/3 h-96  flex  items-center justify-center rounded-lg border-2 border-white bg-white opacity-95">
                 {filestat ? (
                   <div className="h-40 w-52 rounded-md space-y-12 ">
                     {/* <div class="flex items-center justify-center w-full "> */}
@@ -164,7 +164,8 @@ const Exportfile = () => {
                         </p>
                       </div>
                     </label>
-                    <div className=" flex justify-center items-center space-x-3 ">
+                    { loading ? (<ScaleLoader loading={loading} className="flex items-center rounded-md text-3xl justify-center ml-16" />):
+                    (<div className=" flex justify-center items-center space-x-3 ">
                       <BsTrashFill
                         className=" text-white bg-[#5b0e2d] text-4xl p-2 cursor-pointer mt-1 rounded-md"
                         onClick={fileDelete}
@@ -176,7 +177,7 @@ const Exportfile = () => {
                       >
                         Proceed
                       </button>
-                    </div>
+                    </div>)}
                     {/* </div> */}
                   </div>
                 ) : (
