@@ -202,8 +202,8 @@ const resetpassword = async (req, res) => {
 
 
 const textsummarization = async (req, res) => {
-  // const flask_url = process.env.FLASK_URL + "/AI-API/text-summarization";
-  const flask_url = "https://dev.docnlp.com/AI-API/text-summarization";
+  const flask_url = process.env.FLASK_URL + "/AI-API/text-summarization";
+  
 
   const document_types = req.body.document_type;
   // console.log(document_types);
